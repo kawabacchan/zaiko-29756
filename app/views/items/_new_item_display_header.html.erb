@@ -1,0 +1,19 @@
+<div class="item-header">
+  <div class="item-header-title">
+    商品 > 登録
+  </div>
+  <div class="item-form">
+    <%= form_with model:@item, local: true do |f| %>
+      <ul>
+          <li><%= f.text_field :category, placeholder: "カテゴリー"%></li>
+          <li><%= f.text_field :code, placeholder: "商品コード"%></li>
+          <li><%= f.text_field :name, placeholder: "商品名"%></li>
+          <li><%= f.text_field :stock, placeholder: "在庫数"%></li>
+          <li><%= f.text_field :monthly, placeholder: "想定月間販売数"%></li>
+          <li><%= f.text_field :creation_days, placeholder: "商品作成日数"%></li>
+          <li><%= f.submit "登録"%></li>
+      </ul>
+    <% end %>
+  </div>
+<div class="item-content">
+</div>

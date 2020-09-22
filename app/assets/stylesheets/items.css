@@ -4,7 +4,7 @@
 
 .side-bar {
   background-color: lightgreen;
-  width: 200px;
+  width: 150px;
   height: 100vh;
   border-right: 2px solid green;
   padding: 10px;
@@ -33,18 +33,18 @@
 
 .item-display {
   background-color:white;
-  width: calc( 100% - 200px);
+  width: calc( 100% - 150px);
   height: 100vh;
 }
 
 .item-header {
   background-color: white;
   border-bottom: 1.5px solid black;
-  height: 100px;
+  height: 120px;
 }
 
 .item-header-title {
-  padding: 10px 10px 20px;
+  padding: 10px 10px 10px;
 }
 
 .item-indicate-btn ul {
@@ -65,7 +65,19 @@
   margin-left: 10px;
   padding: 5px;
   display: flex;
-  border: 1px solid black;
+  justify-content: space-around;
   width: 1200px;
-  justify-content: space-between;
+}
+
+.item-form li {
+  text-align: center;
+}
+
+.item-form p {
+  font-size: 14px;
+}
+
+.item-form-btn {
+  margin: 10px 0 0 10px;
+  padding: 5px;
 }

@@ -2,9 +2,10 @@
   <div class="item-header-title">
     商品 > 登録
   </div>
-  <div class="item-form">
+  <div class="item-form-and-error">
     <%= form_with model:@item, local: true do |f| %>
-      <ul>
+      <%= render "error_messages", model: f.object %>
+      <ul class="item-form">
         <li><p>カテゴリー</p><%= f.select :category, [["テーブル", "テーブル"],["食器棚", "食器棚"],["テレビボード", "テレビボード"],["椅子", "椅子"],["ベッド", "ベッド"]], {include_blank: true} %></li>
         <li><p>商品コード</p><%= f.text_field :code %></li>
         <li><p>商品名</p><%= f.text_field :name %></li>

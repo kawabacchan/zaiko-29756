@@ -81,3 +81,12 @@
   margin: 10px 0 0 10px;
   padding: 5px;
 }
+
+.error-alert ul {
+  display: flex;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}

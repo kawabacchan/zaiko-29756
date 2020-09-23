@@ -57,20 +57,14 @@
   border: 1px solid black;
 }
 
-.item-form {
-  display: flex;
-}
-
-.item-form ul {
+.item-header-form {
   margin-left: 10px;
-  padding: 5px;
   display: flex;
-  justify-content: space-around;
   width: 1200px;
 }
 
-.item-form li {
-  text-align: center;
+.item-form {
+  display: flex;
 }
 
 .item-form p {

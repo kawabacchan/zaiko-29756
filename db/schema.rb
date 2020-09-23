@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_070337) do
     t.string "code", null: false
     t.string "name", null: false
     t.integer "stock", null: false
-    t.integer "monthly_salses", null: false
+    t.integer "monthly_sales", null: false
     t.integer "creation_days", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

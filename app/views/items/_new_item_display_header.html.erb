@@ -9,11 +9,10 @@
         <li><p>商品コード</p><%= f.text_field :code %></li>
         <li><p>商品名</p><%= f.text_field :name %></li>
         <li><p>在庫数</p><%= f.number_field :stock, min:0 %></li>
-        <li><p>想定月間販売数</p><%= f.number_field :monthly_sales, size:150, min:0 %></li>
+        <li><p>想定月間販売数</p><%= f.number_field :monthly_sales, min:0 %></li>
         <li><p>商品作成日数</p><%= f.number_field :creation_days, min:0 %></li>
         <li><%= f.submit "登録", class:"item-form-btn"%></li>
       </ul>
     <% end %>
   </div>
-<div class="item-content">
 </div>

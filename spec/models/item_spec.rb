@@ -15,9 +15,14 @@ RSpec.describe Item, type: :model do
 
     context "上手くいかない時" do
       it "カテゴリーが空なら登録できない" do
-        @item.category = nil
+        @item.category_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+      it "カテゴリーが1なら登録できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it "商品コードが空なら登録できない" do
         @item.code = nil

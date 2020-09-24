@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    category {"テーブル"}
+    category_id {Faker::Number.between(from: 2, to: 6)}
     code {"A"+ Faker::Number.decimal_part(digits: 3)}
     name {Faker::Lorem.sentence}
     stock {Faker::Number.between(from: 0, to: 1000)}

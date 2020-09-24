@@ -27,3 +27,18 @@
     <% end %>
   <% end %>
 </div>
+
+<div class="item-display-contents", id="sort-creation-list-display">
+  <% @items.each do |item|%>
+    <% if item.stock <= item.monthly_sales * 0.5 %>
+      <div class="item-distplay-content">
+        <%= item.category.name %>
+        <%= item.code%>
+        <%= item.name%>
+        <%= item.stock%>
+        <%= item.monthly_sales%>
+        <%= item.creation_days%>
+      </div>
+    <% end %>
+  <% end %>
+</div>

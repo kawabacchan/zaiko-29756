@@ -84,3 +84,7 @@
   color: red;
   font-size: 14px;
 }
+
+.item-display-contents {
+  display: none;
+}

@@ -1,0 +1,12 @@
+<div class="item-display-contents">
+  <% @items.each do |item|%>
+    <div class="item-distplay-content">
+      <%= item.category%>
+      <%= item.code%>
+      <%= item.name%>
+      <%= item.stock%>
+      <%= item.monthly_sales%>
+      <%= item.creation_days%>
+    </div>
+  <% end %>
+</div>

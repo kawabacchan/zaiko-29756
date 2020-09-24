@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all.order(code: "ASC")
+
   end
 
   def new
     @item = Item.new
     @items = Item.all.order(code: "ASC")
+
   end
 
   def create

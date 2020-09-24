@@ -5,6 +5,7 @@ class Item < ApplicationRecord
 
   validates :category, presence: true
   validates :category_id, numericality: {other_than: 1}
+
   validates :code, presence: true, uniqueness: { case_sensitive: true }, format: { with: /\A[A-Z]{1}\d{3}\z/}
   validates :name, presence: true, uniqueness: { case_sensitive: true }
   

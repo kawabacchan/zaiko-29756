@@ -20,6 +20,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @items = Item.all.order(code: "ASC")
+  end
+
+  def update
+    @items = Item.all
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to new_item_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params

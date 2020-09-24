@@ -57,7 +57,7 @@
   border: 1px solid black;
 }
 
-.item-header-form {
+.item-form-and-error {
   margin-left: 10px;
   display: flex;
   width: 1200px;

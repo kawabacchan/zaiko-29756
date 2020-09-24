@@ -1,0 +1,66 @@
+<div class="wrapper">
+
+  <div class= "side-bar">
+    <%= render "side_bar"%>
+  </div>
+
+  <div class="item-display">
+
+    <div class="item-header">
+      <div class="item-header-title">
+        商品 > 編集
+      </div>
+    </div>
+
+    <div class="item-display-contents">
+      <div class="sort-by-code", id="sort-by-code-display">
+        <% @items.each do |item|%>
+          <% if item.id == @item.id%>
+            <div class="item-form-and-error">
+              <%= form_with model:@item, local: true do |f| %>
+                <%= render "error_messages", model: f.object %>
+                <ul class="item-form">
+                  <li><%= f.collection_select(:category_id, Category.all, :id, :name, {selected: item.category_id}, {class:"category-select"}) %></li>
+                  <li><%= f.text_field :code, value: item.code %></li>
+                  <li><%= f.text_field :name, value: item.name %></li>
+                  <li><%= f.number_field :stock, min:0, value: item.stock %></li>
+                  <li><%= f.number_field :monthly_sales, min:0, value: item.monthly_sales %></li>
+                  <li><%= f.number_field :creation_days, min:0, value: item.creation_days %></li>
+                  <li><%= f.submit "編集実行", class:"item-form-btn"%></li>
+                </ul>
+              <% end %>
+            </div>
+          <% else %>
+            <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+              <div class="item-distplay-content red">
+                <%= item.category.name %>
+                <%= item.code%>
+                <%= item.name%>
+                <%= item.stock%>
+                <%= item.monthly_sales%>
+                <%= item.creation_days%>
+              </div>
+            <% elsif item.stock <= item.monthly_sales * 0.5 %>
+              <div class="item-distplay-content yellow">
+                <%= item.category.name %>
+                <%= item.code%>
+                <%= item.name%>
+                <%= item.stock%>
+                <%= item.monthly_sales%>
+                <%= item.creation_days%>
+              </div>
+            <% else %>
+              <div class="item-distplay-content">
+                <%= item.category.name %>
+                <%= item.code%>
+                <%= item.name%>
+                <%= item.stock%>
+                <%= item.monthly_sales%>
+                <%= item.creation_days%>
+              </div>
+            <%end%>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>

@@ -85,6 +85,18 @@
   font-size: 14px;
 }
 
-.item-display-contents {
+.sort-by-category, .sort-creation-list {
   display: none;
+}
+
+.lightblue {
+  background-color: lightblue;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
 }

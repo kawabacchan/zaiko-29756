@@ -89,6 +89,16 @@
   display: none;
 }
 
+.category-name {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.creation-list-title {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .lightblue {
   background-color: lightblue;
 }

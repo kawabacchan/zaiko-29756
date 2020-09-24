@@ -1,4 +1,4 @@
-<div class="item-display-contents">
+<div class="item-display-contents", id="sort-by-code-display">
   <% @items.each do |item|%>
     <div class="item-distplay-content">
       <%= item.category.name %>
@@ -11,7 +11,7 @@
   <% end %>
 </div>
 
-<div class="item-display-contents">
+<div class="item-display-contents", id="sort-by-category-display">
   <% Category.all.where.not(id:1).each do |category|%>
     <%= category.name %>
     <% @items.each do |item|%>

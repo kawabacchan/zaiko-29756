@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_hash (3.1.0)
+      activesupport (>= 5.0.0)
     activejob (6.0.3.3)
       activesupport (= 6.0.3.3)
       globalid (>= 0.3.6)
@@ -75,6 +77,16 @@ GEM
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     erubi (1.9.0)
+<<<<<<< Updated upstream
+=======
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
+>>>>>>> Stashed changes
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -205,6 +217,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)

@@ -1,0 +1,29 @@
+<div class="item-display-contents">
+  <% @items.each do |item|%>
+    <div class="item-distplay-content">
+      <%= item.category.name %>
+      <%= item.code%>
+      <%= item.name%>
+      <%= item.stock%>
+      <%= item.monthly_sales%>
+      <%= item.creation_days%>
+    </div>
+  <% end %>
+</div>
+
+<div class="item-display-contents">
+  <% Category.all.where.not(id:1).each do |category|%>
+    <%= category.name %>
+    <% @items.each do |item|%>
+      <%if item.category.name == category.name %>
+        <div class="item-distplay-content">
+          <%= item.code%>
+          <%= item.name%>
+          <%= item.stock%>
+          <%= item.monthly_sales%>
+          <%= item.creation_days%>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

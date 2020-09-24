@@ -1,17 +1,15 @@
 class ItemsController < ApplicationController
-  def index
-    @items = Item.all.order(code: "ASC")
+  before_action :all_item, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
+  def index
   end
 
   def new
     @item = Item.new
-    @items = Item.all.order(code: "ASC")
-
   end
 
   def create
-    @items = Item.all
     @item = Item.new(item_params)
     if @item.save
       redirect_to new_item_path
@@ -21,13 +19,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @items = Item.all.order(code: "ASC")
   end
 
   def update
-    @items = Item.all
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to new_item_path
     else
@@ -36,8 +30,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @items = Item.all.order(code: "ASC")
     if @item.destroy
       redirect_to new_item_path
     else
@@ -49,6 +41,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:category_id, :code, :name, :stock, :monthly_sales, :creation_days)
+  end
+
+  def all_item
+    @items = Item.all.order(code: "ASC")
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

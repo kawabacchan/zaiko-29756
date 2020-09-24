@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.all.order(code: "ASC")
+
   end
 
   def new
     @item = Item.new
-    @items = Item.all
+    @items = Item.all.order(code: "ASC")
+
   end
 
   def create
@@ -21,7 +23,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:category, :code, :name, :stock, :monthly_sales, :creation_days)
+    params.require(:item).permit(:category_id, :code, :name, :stock, :monthly_sales, :creation_days)
   end
 
 end

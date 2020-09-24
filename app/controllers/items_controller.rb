@@ -35,6 +35,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @items = Item.all.order(code: "ASC")
+    if @item.destroy
+      redirect_to new_item_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def item_params

@@ -32,32 +32,12 @@
             </div>
           <% else %>
             <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-              <div class="item-distplay-content red">
-                <%= item.category.name %>
-                <%= item.code%>
-                <%= item.name%>
-                <%= item.stock%>
-                <%= item.monthly_sales%>
-                <%= item.creation_days%>
-              </div>
+              <%= render partial: "item_display_content", locals: {item: item} %>
             <% elsif item.stock <= item.monthly_sales * 0.5 %>
               <div class="item-distplay-content yellow">
-                <%= item.category.name %>
-                <%= item.code%>
-                <%= item.name%>
-                <%= item.stock%>
-                <%= item.monthly_sales%>
-                <%= item.creation_days%>
-              </div>
+                <%= render partial: "item_display_content", locals: {item: item} %>
             <% else %>
-              <div class="item-distplay-content">
-                <%= item.category.name %>
-                <%= item.code%>
-                <%= item.name%>
-                <%= item.stock%>
-                <%= item.monthly_sales%>
-                <%= item.creation_days%>
-              </div>
+              <%= render partial: "item_display_content", locals: {item: item} %>
             <%end%>
           <% end %>
         <% end %>

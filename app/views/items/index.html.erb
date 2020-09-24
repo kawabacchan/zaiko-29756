@@ -22,32 +22,15 @@
       <div class="sort-by-code", id="sort-by-code-display">
         <% @items.each do |item|%>
           <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-            <div class="item-distplay-content red">
-              <%= item.category.name %>
-              <%= item.code%>
-              <%= item.name%>
-              <%= item.stock%>
-              <%= item.monthly_sales%>
-              <%= item.creation_days%>
+            <div class="red">
+              <%= render partial: "item_display_content", locals: {item: item} %>
             </div>
           <% elsif item.stock <= item.monthly_sales * 0.5 %>
-            <div class="item-distplay-content yellow">
-              <%= item.category.name %>
-              <%= item.code%>
-              <%= item.name%>
-              <%= item.stock%>
-              <%= item.monthly_sales%>
-              <%= item.creation_days%>
+            <div class="yellow">
+              <%= render partial: "item_display_content", locals: {item: item} %>
             </div>
           <% else %>
-            <div class="item-distplay-content">
-              <%= item.category.name %>
-              <%= item.code%>
-              <%= item.name%>
-              <%= item.stock%>
-              <%= item.monthly_sales%>
-              <%= item.creation_days%>
-            </div>
+            <%= render partial: "item_display_content", locals: {item: item} %>
           <%end%>
         <% end %>
       </div>
@@ -59,13 +42,7 @@
           </div>
           <% @items.each do |item| %>
             <%if item.category.name == category.name %>
-              <div class="item-distplay-content">
-                <%= item.code %>
-                <%= item.name %>
-                <%= item.stock %>
-                <%= item.monthly_sales %>
-                <%= item.creation_days %>
-              </div>
+              <%= render partial: "item_display_content", locals: {item: item} %>
             <% end %>
           <% end %>
         <% end %>
@@ -77,14 +54,7 @@
         </div>
         <% @items.each do |item|%>
           <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-            <div class="item-distplay-content">
-              <%= item.category.name %>
-              <%= item.code%>
-              <%= item.name%>
-              <%= item.stock%>
-              <%= item.monthly_sales%>
-              <%= item.creation_days%>
-            </div>
+            <%= render partial: "item_display_content", locals: {item: item} %>
           <% end %>
         <% end %>
         <div class="creation-list-title">
@@ -92,14 +62,7 @@
         </div>
         <% @items.each do |item|%>  
           <% if (item.stock <= item.monthly_sales * 0.5) && (item.stock > (item.monthly_sales * 0.1)+ 3) %>
-            <div class="item-distplay-content">
-              <%= item.category.name %>
-              <%= item.code%>
-              <%= item.name%>
-              <%= item.stock%>
-              <%= item.monthly_sales%>
-              <%= item.creation_days%>
-            </div>
+            <%= render partial: "item_display_content", locals: {item: item} %>
           <% end %>
         <% end %>
       </div>

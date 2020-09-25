@@ -4,7 +4,7 @@
 
 | Column        | type    | option      |
 | ------------- | ------- | ----------- |
-| category      | string  | null: false |
+| category_id   | integer | null: false |
 | code          | string  | null: false |
 | name          | string  | null: false |
 | stock         | integer | null: false |
@@ -23,7 +23,7 @@ has_many: orders
 | ------------- | ------- | ----------- |
 | campany_name  | string  | null: false |
 | shop_name     | string  | null: false |
-| prefecture    | integer | null: false |
+| prefecture_id | integer | null: false |
 | delibery_days | integer | null: false |
 
 ### Association

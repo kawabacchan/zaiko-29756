@@ -6,15 +6,13 @@
   <div class="item-display">
     <div class="item-header">
       <div class="item-header-title">
-        店舗 > 登録
+        企業 > 登録
       </div>
       <div class="item-form-and-error">
-        <%= form_with model: @shop, local: true do |f| %>
+        <%= form_with model: @company, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
           <ul class="item-form">
-            <li><p>店舗名</p><%= f.text_field :name %></li>
-            <li><p>都道府県</p><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"category-select"}) %></li>
-            <li><p>配送日数</p><%= f.number_field :delivery_days, min:1 %></li>
+            <li><p>企業名</p><%= f.text_field :name %></li>
             <li><%= f.submit "登録", class:"item-form-btn"%></li>
           </ul>
         <% end %>
@@ -24,12 +22,13 @@
     <div class="shop-display-contents">
 
       <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops %>
-          <% @shops.each do |shop|%>
-            <div class="shop-display-content">
-              <%= shop.name %>
-              <%= shop.prefecture.name %>
-              <%= shop.delivery_days %>
+        <%if @companies %>
+          <% @companies.each do |company|%>
+            <div class="company-display-content">
+              <%= company.name %>
+              <%=link_to "店舗登録", new_shop_path(company.id) %>
+              <%=link_to "編集", edit_company_path(company.id) %>
+              <%=link_to "削除", company_path(company.id), method: :delete  %>
             </div>
           <% end %>
         <% end %>

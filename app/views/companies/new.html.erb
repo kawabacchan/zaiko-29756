@@ -26,7 +26,7 @@
           <% @companies.each do |company|%>
             <div class="company-display-content">
               <%= company.name %>
-              <%=link_to "店舗登録", new_shop_path(company.id) %>
+              <%=link_to "店舗登録", new_company_shop_path(company.id) %>
               <%=link_to "編集", edit_company_path(company.id) %>
               <%=link_to "削除", company_path(company.id), method: :delete  %>
             </div>

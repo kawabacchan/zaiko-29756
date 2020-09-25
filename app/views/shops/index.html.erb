@@ -22,25 +22,7 @@
         <%if @shops %>
           <% @shops.each do |shop|%>
             <div class="shop-display-content">
-              <%= shop.company_name %>
-              <%= shop.shop_name %>
-              <%= shop.shop_code %>
-              <%= shop.prefecture.name %>
-              <%= shop.delivery_days %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="sort-by-category", id="sort-by-category-display">
-        <% @shops.each do |shop|%>
-          <div class="company-name">
-            <%= shop.company_name %>
-          </div>
-          <% @shops.where(company_name: shop.company_name).each do |shop|%>
-            <div class="shop-display-content">
-              <%= shop.shop_name %>
-              <%= shop.shop_code %>
+              <%= shop.name %>
               <%= shop.prefecture.name %>
               <%= shop.delivery_days %>
             </div>

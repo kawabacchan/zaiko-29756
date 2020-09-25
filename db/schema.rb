@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(version: 2020_09_25_014441) do
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name"
-    t.string "shop_name"
-    t.integer "prefecture_id"
-    t.integer "delivery_days"
+    t.string "company_name", null: false
+    t.string "shop_name", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_days", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "delivery_dates", "items"
+  add_foreign_key "delivery_dates", "shops"
 end

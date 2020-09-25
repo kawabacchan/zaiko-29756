@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_014441) do
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", null: false
     t.string "shop_name", null: false
+    t.string "shop_code", null: false
     t.integer "prefecture_id", null: false
     t.integer "delivery_days", null: false
     t.datetime "created_at", precision: 6, null: false

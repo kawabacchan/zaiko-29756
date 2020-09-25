@@ -23,6 +23,7 @@ has_many: orders
 | ------------- | ------- | ----------- |
 | campany_name  | string  | null: false |
 | shop_name     | string  | null: false |
+| shop_code     | string  | null: false |
 | prefecture_id | integer | null: false |
 | delibery_days | integer | null: false |
 

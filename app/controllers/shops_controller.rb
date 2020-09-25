@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
   end
 
   def new
+    @company = Company.find(params[:company_id])
     @shops = Shop.all.order(name: "ASC")
     @shop = Shop.new
   end
@@ -13,7 +14,7 @@ class ShopsController < ApplicationController
     @shops = Shop.all.order(name: "ASC") 
     @shop = Shop.new(params_shop)
     if @shop.save
-      redirect_to new_shop_path
+      redirect_to new_company_shop_path
     else
       render :new
     end
@@ -31,7 +32,7 @@ class ShopsController < ApplicationController
   private
 
   def params_shop
-    params.require(:shop).permit(:name, :prefecture_id, :delivery_days).merge(company_id: params[id])
+    params.require(:shop).permit(:name, :prefecture_id, :delivery_days).merge(company_id: params[:company_id])
   end
 
 end

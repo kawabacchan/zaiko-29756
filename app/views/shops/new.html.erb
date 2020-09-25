@@ -9,7 +9,7 @@
         店舗 > 登録
       </div>
       <div class="item-form-and-error">
-        <%= form_with model: @shop, local: true do |f| %>
+        <%= form_with model: [@company, @shop], url: company_shops_path, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
           <ul class="item-form">
             <li><p>店舗名</p><%= f.text_field :name %></li>

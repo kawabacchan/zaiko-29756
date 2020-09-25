@@ -30,6 +30,17 @@
               <%=link_to "編集", edit_company_path(company.id) %>
               <%=link_to "削除", company_path(company.id), method: :delete  %>
             </div>
+            <div class="shop-display-contents">
+                <% @shops.each do |shop|%>
+                  <% if shop.company_id == company.id %>
+                    <div class="shop-display-content">
+                      <%= shop.name %>
+                      <%= shop.prefecture.name %>
+                      <%= shop.delivery_days %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
           <% end %>
         <% end %>
       </div>

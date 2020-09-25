@@ -3,10 +3,12 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
 
   def index
+    @shops = Shop.includes(:company)
   end
 
   def new
     @company = Company.new
+    @shops = Shop.includes(:company)
   end
 
   def create

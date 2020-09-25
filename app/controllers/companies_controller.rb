@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update(item_params)
-      redirect_to new_item_path
+      redirect_to new_company_path
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     if @company.destroy
-      redirect_to new_item_path
+      redirect_to new_company_path
     else
       render :new
     end

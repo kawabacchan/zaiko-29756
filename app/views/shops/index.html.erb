@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar" %>
+  </div>
+
+  <div class="item-display">
+    <div class="item-header">
+      <div class="item-header-title">
+        店舗 > 一覧表示
+      </div>
+      <div class="item-indicate-btn">
+        <ul>
+          <li class="lightblue", id="sort-by-code">通常表示</li>
+          <li id="sort-by-category">企業別表示</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="shop-display-contents">
+
+      <div class="sort-by-code", id="sort-by-code-display">
+        <% @shops.each do |shop|%>
+          <div class="shop-display-content">
+            <%= shop.campany_name %>
+            <%= item.shop_name %>
+            <%= item.prefecture.name %>
+            <%= item.delivery_days %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="sort-by-category", id="sort-by-category-display">
+        <% @shops.each do |shop|%>
+          <div class="campany-name">
+            <%= shop.campany_name %>
+          </div>
+          <% @shops.where(campany_name: shop.campany.name).each do |shop|%>
+            <div class="shop-display-content">
+            <%= shop.campany_name %>
+            <%= item.shop_name %>
+            <%= item.prefecture.name %>
+            <%= item.delivery_days %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

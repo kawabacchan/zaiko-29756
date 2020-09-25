@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_014441) do
-
-  create_table "delivery_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "shop_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_delivery_dates_on_item_id"
-    t.index ["shop_id"], name: "index_delivery_dates_on_shop_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_22_070337) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "category_id", null: false
@@ -32,16 +23,4 @@ ActiveRecord::Schema.define(version: 2020_09_25_014441) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "company_name", null: false
-    t.string "shop_name", null: false
-    t.string "shop_code", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "delivery_days", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "delivery_dates", "items"
-  add_foreign_key "delivery_dates", "shops"
 end

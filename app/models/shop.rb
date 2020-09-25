@@ -7,7 +7,7 @@ class Shop < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  validates :name, presence:true, uniqueness: { case_sensitive: true }
+  validates :name, presence:true
   validates :prefecture, presence:true
   validates :delivery_days, presence:true, numericality: {other_than: 0}
   validates :prefecture_id, numericality: {other_than: 1}

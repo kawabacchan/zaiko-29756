@@ -30,24 +30,9 @@
             <div class="shop-display-content">
               <%= shop.campany_name %>
               <%= item.shop_name %>
+              <%= item.shop_code %>
               <%= item.prefecture.name %>
               <%= item.delivery_days %>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="sort-by-category", id="sort-by-category-display">
-        <% @shops.each do |shop|%>
-          <div class="campany-name">
-            <%= shop.campany_name %>
-          </div>
-          <% @shops.where(campany_name: shop.campany.name).each do |shop|%>
-            <div class="shop-display-content">
-            <%= shop.campany_name %>
-            <%= item.shop_name %>
-            <%= item.prefecture.name %>
-            <%= item.delivery_days %>
             </div>
           <% end %>
         <% end %>

@@ -13,25 +13,39 @@
 
 ### Association
 
-has_many: delivery_dates
-has_many: shops, through: delivery_dates
-has_many: orders
+has_many :delivery_dates
+has_many :shops, through: delivery_dates
+has_many :orders
 
-## shopsテーブル
+
+## companysテーブル
 
 | Column        | type    | option      |
 | ------------- | ------- | ----------- |
-| campany_name  | string  | null: false |
-| shop_name     | string  | null: false |
-| shop_code     | string  | null: false |
-| prefecture_id | integer | null: false |
-| delibery_days | integer | null: false |
+| name          | string  | null: false |
 
 ### Association
 
-has_many: delivery_dates
-has_many: items, through: delivery_dates
-has_many: orders
+has_many :shops
+
+
+## shopsテーブル
+
+| Column        | type       | option      |
+| ------------- | ---------- | ----------- |
+| name          | string     | null: false |
+| code          | string     | null: false |
+| prefecture_id | integer    | null: false |
+| delibery_days | integer    | null: false |
+| company       | references | null: false |
+
+### Association
+
+belongs_to :company
+has_many :delivery_dates
+has_many :items, through: delivery_dates
+has_many :orders
+
 
 ## delivery_datesテーブル
 
@@ -42,10 +56,11 @@ has_many: orders
 
 ### Association
 
-belongs_to: item
-belongs_to: shop
+belongs_to :item
+belongs_to :shop
 
-## delivery_datesテーブル
+
+## ordersテーブル
 
 | Column        | type        | option      |
 | ------------- | ----------- | ----------- |
@@ -55,5 +70,5 @@ belongs_to: shop
 
 ### Association
 
-belongs_to: item
-belongs_to: shop
+belongs_to :item
+belongs_to :shop

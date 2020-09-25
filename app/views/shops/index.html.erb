@@ -19,13 +19,15 @@
     <div class="shop-display-contents">
 
       <div class="sort-by-code", id="sort-by-code-display">
-        <% @shops.each do |shop|%>
-          <div class="shop-display-content">
-            <%= shop.campany_name %>
-            <%= item.shop_name %>
-            <%= item.prefecture.name %>
-            <%= item.delivery_days %>
-          </div>
+        <%if @shops %>
+          <% @shops.each do |shop|%>
+            <div class="shop-display-content">
+              <%= shop.campany_name %>
+              <%= item.shop_name %>
+              <%= item.prefecture.name %>
+              <%= item.delivery_days %>
+            </div>
+          <% end %>
         <% end %>
       </div>
 

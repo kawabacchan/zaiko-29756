@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 
   def index
-    @shops = Shop.all
+    @shops = Shop.all.order(shop_code: "ASC")
   end
 
   def new

@@ -1,0 +1,36 @@
+<div class="wrapper">
+
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="item-display">
+
+    <div class="item-header">
+      <div class="item-header-title">
+        企業 > 編集
+      </div>
+    </div>
+
+    <div class="item-display-contents">
+      <div class="sort-by-code", id="sort-by-code-display">
+        <% @companies.each do |company|%>
+          <% if company.id == @company.id%>
+            <div class="item-form-and-error">
+              <%= form_with model:@company, local: true do |f| %>
+                <%= render "items/error_messages", model: f.object %>
+                <ul class="item-form">
+                  <li><p>企業名</p><%= f.text_field :name %></li>
+                  <li><%= f.submit "編集実行", class:"item-form-btn"%></li>
+                </ul>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="company-display-content">
+              <%= company.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>

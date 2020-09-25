@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar" %>
+  </div>
+
+  <div class="item-display">
+    <div class="item-header">
+      <div class="item-header-title">
+        企業 > 一覧表示
+      </div>
+    </div>
+
+    <div class="company-display-contents">
+
+      <div class="sort-by-code", id="sort-by-code-display">
+        <%if @companies %>
+          <% @companies.each do |company|%>
+            <div class="company-display-content">
+              <%= company.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

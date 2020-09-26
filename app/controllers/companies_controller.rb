@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    @shops = Shop.includes(:company)
     @company = Company.new(company_params)
     if @company.save
       redirect_to new_company_path

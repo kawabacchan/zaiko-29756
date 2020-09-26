@@ -31,8 +31,9 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    @company = Company.find(params[:company_id])
     if @shop.destroy
-      redirect_to company_shop_path
+      redirect_to new_company_shop_path
     else
       render :new
     end

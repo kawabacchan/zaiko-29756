@@ -10,6 +10,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @company = Company.find(params[:company_id])
     if @shop.save
       redirect_to new_company_shop_path
     else

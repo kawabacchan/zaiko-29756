@@ -1,5 +1,4 @@
 class Shop < ApplicationRecord
-
   belongs_to :company
   has_many :delivery_dates
   has_many :items, through: :delivery_dates
@@ -11,6 +10,5 @@ class Shop < ApplicationRecord
   validates :prefecture, presence:true
   validates :delivery_days, presence:true, numericality: {other_than: 0}
   validates :prefecture_id, numericality: {other_than: 1}
-
 
 end

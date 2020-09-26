@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(item_params)
+    @company = Company.new(company_params)
     if @company.save
       redirect_to new_company_path
     else
@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    if @company.update(item_params)
+    if @company.update(company_params)
       redirect_to new_company_path
     else
       render :edit
@@ -41,7 +41,7 @@ class CompaniesController < ApplicationController
 
   private
 
-  def item_params
+  def company_params
     params.require(:company).permit(:name)
   end
 

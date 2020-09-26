@@ -6,7 +6,7 @@
   <div class="item-display">
     <div class="item-header">
       <div class="item-header-title">
-        店舗 > 登録
+        <%= @company.name %> > 店舗 > 登録
       </div>
       <div class="item-form-and-error">
         <%= form_with model: [@company, @shop], url: company_shops_path, local: true do |f| %>
@@ -30,6 +30,7 @@
               <%= shop.name %>
               <%= shop.prefecture.name %>
               <%= shop.delivery_days %>
+              <%= link_to "編集", edit_company_shop_path(id: shop.id) %>
             </div>
           <% end %>
         <% end %>

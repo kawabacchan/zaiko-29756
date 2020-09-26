@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="item-display">
+    <div class="item-header">
+      <div class="item-header-title">
+        <%= @company.name %> > 店舗 > 編集
+      </div>
+    </div>
+
+    <div class="shop-display-contents">
+
+      <div class="sort-by-code", id="sort-by-code-display">
+        <% @shops.each do |shop|%>
+          <% if shop.id == @shop.id %>
+            <div class="item-form-and-error">
+              <%= form_with model: [@company, @shop], url: company_shop_path, local: true do |f| %>
+                <%= render "items/error_messages", model: f.object %>
+                <ul class="item-form">
+                  <li><p>店舗名</p><%= f.text_field :name %></li>
+                  <li><p>都道府県</p><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"category-select"}) %></li>
+                  <li><p>配送日数</p><%= f.number_field :delivery_days, min:1 %></li>
+                  <li><%= f.submit "登録", class:"item-form-btn"%></li>
+                </ul>
+              <% end %>
+            </div>
+          <% else %>  
+            <div class="shop-display-content">
+              <%= shop.name %>
+              <%= shop.prefecture.name %>
+              <%= shop.delivery_days %>
+            </div>
+          <% end%>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -14,8 +14,8 @@
 ### Association
 
 has_many :delivery_dates
-has_many :shops, through: delivery_dates
 has_many :orders
+has_many :shops, through: orders
 
 
 ## companysテーブル
@@ -42,22 +42,8 @@ has_many :shops
 ### Association
 
 belongs_to :company
-has_many :delivery_dates
-has_many :items, through: delivery_dates
 has_many :orders
-
-
-## delivery_datesテーブル
-
-| Column        | type        | option      |
-| ------------- | ----------- | ----------- |
-| item          | references  | null: false |
-| shop          | references  | null: false |
-
-### Association
-
-belongs_to :item
-belongs_to :shop
+has_many :items, through: orders
 
 
 ## ordersテーブル

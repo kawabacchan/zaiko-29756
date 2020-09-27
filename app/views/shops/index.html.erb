@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="item-display">
+    <div class="item-header">
+      <div class="item-header-title">
+        <%=@company.name%> > 店舗一覧表示
+      </div>
+    </div>
+
+    <div class="item-display-contents">
+      <div class="sort-by-code", id="sort-by-code-display">
+        <%if @shops %>
+          <div class="shop-display-contents">
+            <% @shops.each do |shop|%>
+              <div class="shop-display-content">
+                <%= shop.company.name %>
+                <%= shop.name %>
+                <%= shop.prefecture.name %>
+                <%= shop.delivery_days %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p>登録店舗なし</p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

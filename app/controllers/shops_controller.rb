@@ -3,6 +3,13 @@ class ShopsController < ApplicationController
   before_action :all_shop, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_shop, only: [:edit, :update, :destroy]
 
+  def index
+    @shops = Shop.where(company_id: params[:company_id]).order(company_id: "ASC")
+    @company = Company.find(params[:company_id])
+  end
+
+
+
   def new
     @shop = Shop.new
     @company = Company.find(params[:company_id])

@@ -30,6 +30,7 @@
                       <%= shop.name %>
                       <%= shop.prefecture.name %>
                       <%= shop.delivery_days %>
+                      <%= link_to "選択", company_shops_path(company.id) %>
                     </div>
                   <% end %>
                 <% end %>

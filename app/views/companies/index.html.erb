@@ -10,8 +10,8 @@
       </div>
       <div class="item-indicate-btn">
         <ul>
-          <li class="lightblue", id="sort-by-code">通常表示</li>
-          <li id="sort-by-category">企業別表示</li>
+          <li class="lightblue", id="sort-by-code">企業一覧</li>
+          <li id="sort-by-category">企業別店舗表示</li>
         </ul>
       </div>
     </div>
@@ -22,19 +22,8 @@
         <%if @companies %>
           <% @companies.each do |company|%>
             <div class="company-display-content">
-              <div class="shop-display-contents">
-                <% @shops.each do |shop|%>
-                  <% if shop.company_id == company.id %>
-                    <div class="shop-display-content">
-                      <%= company.name %>
-                      <%= shop.name %>
-                      <%= shop.prefecture.name %>
-                      <%= shop.delivery_days %>
-                      <%= link_to "選択", company_shops_path(company.id) %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
+              <%= company.name%>
+              <%= link_to "店舗表示", company_shops_path(company.id) %>
             </div>
           <% end %>
         <% end %>

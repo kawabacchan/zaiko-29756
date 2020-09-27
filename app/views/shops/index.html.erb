@@ -12,19 +12,20 @@
 
     <div class="item-display-contents">
       <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops %>
+        <%if @shops.empty? %>
+          <p>登録店舗なし</p>
+        <% else %>
           <div class="shop-display-contents">
             <% @shops.each do |shop|%>
               <div class="shop-display-content">
-                <%= shop.company.name %>
                 <%= shop.name %>
                 <%= shop.prefecture.name %>
                 <%= shop.delivery_days %>
+                <%= link_to "編集", edit_company_shop_path(id: shop.id) %>
+                <%= link_to "削除", company_shop_path(id: shop.id), method: :delete %>
               </div>
             <% end %>
           </div>
-        <% else %>
-          <p>登録店舗なし</p>
         <% end %>
       </div>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_091121) do
+ActiveRecord::Schema.define(version: 2020_09_27_090315) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2020_09_26_091121) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "sales_numbers", null: false
+    t.bigint "item_id"
+    t.bigint "shop_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["shop_id"], name: "index_orders_on_shop_id"
+  end
+
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "prefecture_id", null: false
@@ -50,5 +60,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_091121) do
 
   add_foreign_key "delivery_dates", "items"
   add_foreign_key "delivery_dates", "shops"
+  add_foreign_key "orders", "items"
+  add_foreign_key "orders", "shops"
   add_foreign_key "shops", "companies"
 end

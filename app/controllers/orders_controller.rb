@@ -15,15 +15,19 @@ class OrdersController < ApplicationController
     @items = Item.all.order(code: "ASC")
     @shop = Shop.find(params[:shop_id])
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to new_company_shop_order_path
+    item = Item.find(@order.item_id)
+    if item.stock >= @order.sales_numbers
+      if @order.save
+        item.update(stock: (item.stock - @order.sales_numbers))
+        redirect_to new_company_shop_order_path
+      else
+        render :new
+      end
     else
       render :new
     end
+
   end
-
-
-
 
 
   private
@@ -33,3 +37,4 @@ class OrdersController < ApplicationController
   end
 
 end
+

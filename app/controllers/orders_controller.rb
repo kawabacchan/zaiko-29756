@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @items = Item.all.order(code: "ASC")
-    @shop = Shop.find(params[:shop_id])
+    @orders = Order.all.order(created_at: "DESC")
   end
 
   def new

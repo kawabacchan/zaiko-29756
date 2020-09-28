@@ -6,31 +6,20 @@
   <div class="item-display">
     <div class="item-header">
       <div class="item-header-title">
-        取引先 > 注文数入力
+        取引先 > 注文一覧
       </div>
     </div>
 
     <div class="item-display-contents">
-
-      <div class="sort-by-code", id="sort-by-code-display">
-        <% if @items %>
-          <% @items.each do |item|%>
-            <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-              <div class="red">
-                <%= render partial: "order_item_display_content", locals: {item: item} %>
-              </div>
-            <% elsif item.stock <= item.monthly_sales * 0.5 %>
-              <div class="yellow">
-                <%= render partial: "order_item_display_content", locals: {item: item} %>
-              </div>
-            <% else %>
-              <%= render partial: "order_item_display_content", locals: {item: item} %>
-              
-            <%end%>
-          <% end %>
-        <% end %>
-      </div>
-
+      <% @orders.each do |order| %>
+        <ul>
+          <li><%= order.shop.company.name %></li>
+          <li><%= order.shop.name %></li>
+          <li><%= order.item.name %></li>
+          <li><%= order.sales_numbers %></li>
+          <li><%= order.created_at %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>

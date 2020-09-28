@@ -5,11 +5,18 @@
   <%= item.stock%>
   <%= item.monthly_sales%>
   <%= item.creation_days%>
-  <%= form_with model:[@shop, @order], url:company_shop_orders_path, local: true do |f| %>
+  <%=form_with model:[@shop, @order], url: company_shop_orders_path do |f| %>
     <%= render "items/error_messages", model: f.object %>
     <ul class="item-form">
-      <li><%= f.number_field :sales_numbers, min:1 %></li>
-      <li><%= f.submit "登録", class:"item-form-btn"%></li>
+      <li><input name="item_id" type="hidden" value=<%= item.id %>></li>
+      <li><p>注文数</p><%= f.number_field :sales_numbers, min:1 %></li>
+      <li><%= f.submit "確定", class:"item-form-btn"%></li>
     </ul>
   <% end %>
+  
+  <% sum = 0 %>
+  <% Order.where(item_id: item.id, shop_id: @shop.id).each do |order| %>
+    <% sum += order.sales_numbers %>
+  <% end %>
+  <%= sum %>
 </div>

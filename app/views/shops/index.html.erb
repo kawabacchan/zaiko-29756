@@ -23,6 +23,7 @@
                 <%= shop.delivery_days %>
                 <%= link_to "編集", edit_company_shop_path(id: shop.id) %>
                 <%= link_to "削除", company_shop_path(id: shop.id), method: :delete %>
+                <%= link_to "注文受付", new_company_shop_order_path(shop_id: shop.id) %>
               </div>
             <% end %>
           </div>

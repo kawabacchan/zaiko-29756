@@ -16,9 +16,8 @@ class OrdersController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @order = Order.new(order_params)
     item = Item.find(@order.item_id)
-    if item.stock >= @order.sales_numbers
+    if item.update(stock: (item.stock - @order.sales_numbers))
       if @order.save
-        item.update(stock: (item.stock - @order.sales_numbers))
         redirect_to new_company_shop_order_path
       else
         render :new

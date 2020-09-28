@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @items = Item.all.order(code: "ASC")
     @shop = Shop.find(params[:shop_id])
     @order = Order.new(order_params)
@@ -22,6 +21,8 @@ class OrdersController < ApplicationController
       render :new
     end
   end
+
+
 
 
 

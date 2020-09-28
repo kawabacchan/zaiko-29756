@@ -99,6 +99,15 @@
   margin-top: 10px;
 }
 
+.order-display-contents {
+  height: calc(100vh - 120px);
+  overflow: scroll;
+}
+
+.order-display-content ul {
+  display: flex;
+}
+
 .lightblue {
   background-color: lightblue;
 }

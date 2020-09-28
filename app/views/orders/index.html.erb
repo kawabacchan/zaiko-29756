@@ -6,20 +6,22 @@
   <div class="item-display">
     <div class="item-header">
       <div class="item-header-title">
-        取引先 > 注文一覧
+        注文 > 一覧表示
       </div>
     </div>
 
-    <div class="item-display-contents">
-      <% @orders.each do |order| %>
-        <ul>
-          <li><%= order.shop.company.name %></li>
-          <li><%= order.shop.name %></li>
-          <li><%= order.item.name %></li>
-          <li><%= order.sales_numbers %></li>
-          <li><%= order.created_at %></li>
-        </ul>
-      <% end %>
+    <div class="order-display-contents">
+      <div class="order-display-content">
+        <% @orders.each do |order| %>
+          <ul>
+            <li><%= order.shop.company.name %></li>
+            <li><%= order.shop.name %></li>
+            <li><%= order.item.name %></li>
+            <li><%= order.sales_numbers %></li>
+            <li><%= order.created_at %></li>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

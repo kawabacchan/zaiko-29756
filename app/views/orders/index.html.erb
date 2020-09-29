@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="item-display">
+    <div class="item-header">
+      <div class="item-header-title">
+        注文 > 一覧表示
+      </div>
+    </div>
+
+    <div class="order-display-contents">
+      <div class="order-display-content">
+        <% @orders.each do |order| %>
+          <ul>
+            <li><%= order.shop.company.name %></li>
+            <li><%= order.shop.name %></li>
+            <li><%= order.item.name %></li>
+            <li><%= order.sales_numbers %></li>
+            <li><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

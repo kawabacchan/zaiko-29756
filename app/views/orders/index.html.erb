@@ -20,7 +20,7 @@
             <li><%= order.sales_numbers %></li>
             <li><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></li>
             <% if order.created_at >= Date.today %>
-              <li><a href="#"> 削除</a></li>
+              <li><%= link_to '削除',company_shop_order_path(id: order.id), method: :delete %></li>
             <% end%>
           </ul>
         <% end %>

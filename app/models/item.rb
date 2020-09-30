@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   end
 
   def self.import(file)
-    xlsx = Roo::Excelx.new(file.tempfile)
+    xlsx = Roo::Excelx.new(file.path)
     xlsx.each_row_streaming(offset: 1) do |row|
       if self.where(code: row[1].value).present?
         self.where(code: row[1].value).update(category_id: row[0].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)

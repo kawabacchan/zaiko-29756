@@ -46,13 +46,12 @@ class ItemsController < ApplicationController
   def compare
     @items = Item.all
     @error_stock_items = []
-    if  xlsx = Roo::Excelx.new(params[:file].tempfile)
-      xlsx.each_row_streaming(offset: 1) do |row|
-        unless Item.where(code: row[1].value).present? && (Item.where(code: row[1].value).first.stock == row[3].value)
-          item = Item.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
-        end
-        @error_stock_items << item
+    xlsx = Roo::Excelx.new(params[:file].path)
+    xlsx.each_row_streaming(offset: 1) do |row|
+      unless Item.where(code: row[1].value).present? && (Item.where(code: row[1].value).first.stock == row[3].value)
+        item = Item.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
       end
+      @error_stock_items << item
     end
   end
 

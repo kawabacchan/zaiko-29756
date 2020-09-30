@@ -40,6 +40,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def show
+    @items = Item.all.order(code: "ASC")
+    @shops = Shop.where(company_id: params[:id])
+    @company = Company.find(params[:id])
+  end
+
+
   private
 
   def company_params

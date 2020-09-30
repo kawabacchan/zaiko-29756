@@ -67,3 +67,5 @@ end
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'active_hash'
 gem 'pry-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

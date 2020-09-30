@@ -1,0 +1,113 @@
+<div class="delivery-table">
+
+  <div class="delivery-table-title">納期表</div>
+  <div class="delivery-table-date"><%= Date.today.strftime("%Y/%-m/%-d")%></div>
+
+  <div class="delivery-table-company">
+    <span><%= @company.name %></span>御中
+  </div>
+  <div class="maker-name">家具メーカー株式会社</div>
+
+  <div class="delivery-table-comment">いつもお世話になっております。<br>今週もよろしくお願い致します。</div>
+
+  <div class="delivery-shops">
+    <% if @shops.length <=13 %>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops.each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+    <% elsif @shops.length <=26 %>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops[0..12].each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops[13..25].each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops[0..12].each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops[13..25].each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+      <table>
+        <tr>
+          <th>店舗</th><th>通常納期</th><th>納期遅れ</th>
+        </tr>
+        <% @shops[26..38].each do |shop| %>
+          <tr>
+            <td><%=shop.name%></td>
+            <td><%= (Date.today + shop.delivery_days.days).strftime("%-m/%-d") %></td>
+            <td><%=(Date.today + shop.delivery_days.days + 7.days).strftime("%-m/%-d")%></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %> 
+  </div>
+
+  <div class="later-delivery-items">
+    <div class="later-delivery-items-title">納期遅れ商品</div>
+    <% unless @items.blank? %>
+      <table>
+        <% @items.each do |item|%>
+          <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+            <div class="later-delivery-item">
+              <tr>
+                <td><%= item.category.name %></td>
+                <td><%= item.code %></td>
+                <td><%= item.name%></td>
+              </tr>
+            </div>
+          <% end %>
+        <% end %>
+      </table>
+    <% else %>
+      <p>今週の納期遅れはありません。</p>
+    <% end %>
+  </div>
+
+</div>

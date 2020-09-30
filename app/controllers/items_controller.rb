@@ -38,10 +38,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def import
+    Item.import(params[:file])
+    redirect_to new_item_path
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:category_id, :code, :name, :stock, :monthly_sales, :creation_days)
+    params.require(:item).permit(:category_id, :code, :name, :stock, :monthly_sales)
   end
 
   def all_item

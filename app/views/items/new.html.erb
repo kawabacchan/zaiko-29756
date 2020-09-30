@@ -23,6 +23,10 @@
           </ul>
         <% end %>
       </div>
+      <%= form_with url:import_items_path, local: true do |f| %>
+        <%= f.file_field :file %>
+        <%= f.submit "インポート"%>
+      <% end %>
     </div>
 
     <div class="item-display-contents">

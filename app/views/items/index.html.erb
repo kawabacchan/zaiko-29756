@@ -15,6 +15,10 @@
           <li id="sort-creation-list">発注リスト表示</li>
         </ul>
       </div>
+      <%= form_with url: compare_items_path, local: true do |f| %>
+        <%= f.file_field :file %>
+        <%= f.submit "本社ー工場 在庫照合"%>
+      <% end %>
     </div>
 
     <div class="item-display-contents">

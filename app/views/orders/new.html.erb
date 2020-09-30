@@ -3,15 +3,15 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         <%= @shop.company.name %> > <%= @shop.name %> > 注文数入力
       </div>
     <%= @shop.company.name %> > <%= @shop.name %> > <%=link_to '一覧表示', company_shop_orders_path %>
     </div>
 
-    <div class="item-display-contents">
+    <div class="lower-display">
 
       <div class="sort-by-code", id="sort-by-code-display">
         <% if @items %>

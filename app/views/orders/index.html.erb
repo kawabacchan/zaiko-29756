@@ -3,14 +3,14 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         注文 > 一覧表示
       </div>
     </div>
 
-    <div class="order-display-contents">
+    <div class="lower-display">
       <div class="order-display-content">
         <% @orders.each do |order| %>
           <ul>

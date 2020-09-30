@@ -31,19 +31,19 @@
   list-style-type: disc;
 }
 
-.item-display {
+.main-display {
   background-color:white;
   width: calc( 100% - 150px);
   height: 100vh;
 }
 
-.item-header {
+.top-display {
   background-color: white;
   border-bottom: 1.5px solid black;
-  height: 120px;
+  height: 180px;
 }
 
-.item-header-title {
+.top-display-title {
   padding: 10px 10px 10px;
 }
 
@@ -99,12 +99,12 @@
   margin-top: 10px;
 }
 
-.order-display-contents {
+.lower-display {
   height: calc(100vh - 120px);
   overflow: scroll;
 }
 
-.order-display-content ul {
+.lower-display ul {
   display: flex;
 }
 

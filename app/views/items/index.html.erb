@@ -3,9 +3,9 @@
     <%= render "side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         商品 > 一覧表示
       </div>
       <div class="item-indicate-btn">
@@ -15,13 +15,16 @@
           <li id="sort-creation-list">発注リスト表示</li>
         </ul>
       </div>
-      <%= form_with url: compare_items_path, local: true do |f| %>
-        <%= f.file_field :file %>
-        <%= f.submit "本社ー工場 在庫照合"%>
-      <% end %>
+      <div class="compare-stock">
+        <p>本社と工場の在庫数の照合</p>
+        <%= form_with url: compare_items_path, local: true do |f| %>
+          <%= f.file_field :file %>
+          <%= f.submit "在庫照合"%>
+        <% end %>
+      </div>
     </div>
 
-    <div class="item-display-contents">
+    <div class="lower-display">
 
       <div class="sort-by-code", id="sort-by-code-display">
         <% if @items %>

@@ -3,14 +3,14 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         <%= @company.name %> > 店舗 > 編集
       </div>
     </div>
 
-    <div class="shop-display-contents">
+    <div class="lower-display">
 
       <div class="sort-by-code", id="sort-by-code-display">
         <% @shops.each do |shop|%>

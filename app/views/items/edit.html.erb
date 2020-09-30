@@ -4,15 +4,15 @@
     <%= render "side_bar"%>
   </div>
 
-  <div class="item-display">
+  <div class="main-display">
 
-    <div class="item-header">
-      <div class="item-header-title">
+    <div class="top-display">
+      <div class="top-display-title">
         商品 > 編集
       </div>
     </div>
 
-    <div class="item-display-contents">
+    <div class="lower-display">
       <div class="sort-by-code", id="sort-by-code-display">
         <% @items.each do |item|%>
           <% if item.id == @item.id%>

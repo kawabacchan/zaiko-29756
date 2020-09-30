@@ -4,7 +4,6 @@
   <%= item.name%>
   <%= item.stock%>
   <%= item.monthly_sales%>
-  <%= item.creation_days%>
   <%=form_with model:[@shop, @order], url: company_shop_orders_path do |f| %>
     <%= render "items/error_messages", model: f.object %>
     <ul class="order-form">

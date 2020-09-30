@@ -25,7 +25,6 @@
                   <li><%= f.text_field :name, value: item.name %></li>
                   <li><%= f.number_field :stock, min:0, value: item.stock %></li>
                   <li><%= f.number_field :monthly_sales, min:0, value: item.monthly_sales %></li>
-                  <li><%= f.number_field :creation_days, min:0, value: item.creation_days %></li>
                   <li><%= f.submit "編集実行", class:"item-form-btn"%></li>
                 </ul>
               <% end %>

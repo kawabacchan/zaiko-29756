@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_090315) do
+ActiveRecord::Schema.define(version: 2020_09_30_023540) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_09_27_090315) do
     t.string "name", null: false
     t.integer "stock", null: false
     t.integer "monthly_sales", null: false
-    t.integer "creation_days", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

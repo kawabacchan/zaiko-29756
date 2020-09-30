@@ -4,7 +4,6 @@
   <%= item.name%>
   <%= item.stock%>
   <%= item.monthly_sales%>
-  <%= item.creation_days%>
   <%=link_to "編集", edit_item_path(item.id) %>
   <%=link_to "削除", item_path(item.id), method: :delete  %>
 </div>

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select]
   before_action :set_company, only: [:edit, :update, :destroy]
 
   def index
@@ -44,6 +44,9 @@ class CompaniesController < ApplicationController
     @items = Item.all.order(code: "ASC")
     @shops = Shop.where(company_id: params[:id])
     @company = Company.find(params[:id])
+  end
+
+  def select
   end
 
 

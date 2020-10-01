@@ -79,6 +79,11 @@
   width: 1200px;
 }
 
+.top-display-instruction {
+  font-weight: bold;
+  padding: 20px;
+}
+
 .error-alert ul {
   display: flex;
 }

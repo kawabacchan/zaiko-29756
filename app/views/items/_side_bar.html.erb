@@ -19,12 +19,23 @@
 
   <div class="side-item content">
     <div class="side-item-header">
-      企業・店舗
+      企業
     </div>
     <div class="side-item content-btn">
       <ul>
         <li><%=link_to '一覧表示', companies_path %></li>
         <li><%=link_to '登録', new_company_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="side-item content">
+    <div class="side-item-header">
+      店舗
+    </div>
+    <div class="side-item content-btn">
+      <ul>
+        <li><%=link_to '一覧表示', select_companies_path %></li>
       </ul>
     </div>
   </div>

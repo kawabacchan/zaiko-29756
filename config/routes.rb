@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection {post :compare}
   end
   resources :companies do
+    collection {get :select}
     resources :shops, only: [:index, :new, :create, :edit, :update, :destroy] do
       resources :orders, only: [:index, :new, :create, :destroy]
     end

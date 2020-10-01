@@ -11,10 +11,22 @@
       <div class="item-form-and-error">
         <%= form_with model: @company, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
-          <ul class="item-form">
-            <li><p>企業名</p><%= f.text_field :name %></li>
-            <li><%= f.submit "登録", class:"item-form-btn"%></li>
-          </ul>
+          <table>
+            <tr>
+              <th class="th-item-category">企業名</th>
+            </tr>
+            <tr>
+              <td><%= f.text_field :name, class:"item-name-form item-form" %></td>
+              <td><%= f.submit "登録", class:"item-submit-form item-form" %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+      <div class="import-file">
+        <p>企業登録（.xlsxファイル）</p>
+        <%= form_with url:import_companies_path, local: true do |f| %>
+          <%= f.file_field :file, accept: ".xlsx" %>
+          <%= f.submit "インポート"%>
         <% end %>
       </div>
     </div>

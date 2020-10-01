@@ -23,8 +23,6 @@
           <% @companies.each do |company|%>
             <div class="company-display-content">
               <%= company.name%>
-              <%= link_to "店舗表示", company_shops_path(company.id) %>
-              <%= link_to "納期表", company_path(company.id) %>
             </div>
           <% end %>
         <% end %>

@@ -46,6 +46,15 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def import
+    if params[:file].present?
+      Company.import(params[:file])
+      redirect_to new_company_path
+    else
+      redirect_to new_company_path
+    end
+  end
+
   def select
   end
 

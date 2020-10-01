@@ -62,16 +62,15 @@
   border: 1px solid black;
 }
 
-.compare-stock {
+.import-file {
   margin: 10px;
   padding: 5px;
   background-color: lightgrey;
   width: 480px;
 }
 
-.compare-stock p {
+.import-file p {
   font-weight: bold;
-
 }
 
 .item-form-and-error {
@@ -80,26 +79,42 @@
   width: 1200px;
 }
 
-.item-form {
-  display: flex;
-}
-
-.item-form p {
-  font-size: 14px;
-}
-
-.item-form-btn {
-  margin: 10px 0 0 10px;
-  padding: 5px;
-}
-
 .error-alert ul {
   display: flex;
 }
 
 .error-message {
   color: red;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.item-form {
+  height: 30px;
+  border: none;
+}
+
+.item-category-form {
+  width: 100px;
+}
+
+.item-code-form {
+  width: 100px;
+}
+
+.item-name-form {
+  width: 200px;
+}
+
+.item-stock-form {
+  width: 100px;
+}
+
+.item-monthly-sales-form {
+  width: 150px;
+}
+
+.item-submit-form {
+  width: 40px;
 }
 
 .sort-by-category, .sort-creation-list {
@@ -132,23 +147,23 @@ th, td {
   text-align: center;
 }
 
-.td-item-category {
+.th-item-category {
   width: 100px;
 }
 
-.td-item-code {
+.th-item-code {
   width: 100px;
 }
 
-.td-item-name {
+.th-item-name {
   width: 200px;
 }
 
-.td-item-stock {
+.th-item-stock {
   width: 100px;
 }
 
-.td-item-monthly-sales {
+.th-item-monthly-sales {
   width: 150px;
 }
 

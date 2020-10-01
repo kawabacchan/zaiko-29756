@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
 
-  has_many :delivery_dates
-  has_many :shops, through: :orders
+  has_many :orders, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category

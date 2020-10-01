@@ -1,0 +1,30 @@
+<div class="wrapper">
+
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
+        店舗 > 一覧表示
+      </div>
+      <div class="top-display-instruction">
+        <p>下記より選択</p>
+      </div>
+    </div>
+
+    <div class="lower-display">
+      <div class="sort-by-code", id="sort-by-code-display">
+        <%if @companies %>
+          <% @companies.each do |company|%>
+            <div class="company-display-content">
+              <%= link_to company.name, company_path(company.id) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

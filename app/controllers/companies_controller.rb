@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select]
+  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select, :delivery]
   before_action :set_company, only: [:edit, :update, :destroy]
 
   def index
@@ -47,6 +47,9 @@ class CompaniesController < ApplicationController
   end
 
   def select
+  end
+
+  def delivery
   end
 
 

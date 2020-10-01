@@ -18,7 +18,7 @@
       <div class="compare-stock">
         <p>データベースと工場の在庫数照合</p>
         <%= form_with url: compare_items_path, local: true do |f| %>
-          <%= f.file_field :file %>
+          <%= f.file_field :file, accept: ".xlsx" %>
           <%= f.submit "在庫照合"%>
         <% end %>
       </div>

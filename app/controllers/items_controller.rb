@@ -39,20 +39,29 @@ class ItemsController < ApplicationController
   end
 
   def import
-    Item.import(params[:file])
-    redirect_to new_item_path
+    if params[:file].present?
+      Item.import(params[:file])
+      redirect_to new_item_path
+    else
+      redirect_to new_item_path
+    end
   end
     
   def compare
     @items = Item.all
-    @error_stock_items = []
-    xlsx = Roo::Excelx.new(params[:file].path)
-    xlsx.each_row_streaming(offset: 1) do |row|
-      unless Item.where(code: row[1].value).present? && (Item.where(code: row[1].value).first.stock == row[3].value)
-        item = Item.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
+    if params[:file].present?
+      @error_stock_items = []
+      xlsx = Roo::Excelx.new(params[:file].path)
+      xlsx.each_row_streaming(offset: 1, pad_cells: true) do |row|
+        unless Item.all.where(code: row[1].value).present? && (Item.all.where(code: row[1].value).first.stock == row[3].value)
+          item = Item.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
+          @error_stock_items << item
+        end
       end
-      @error_stock_items << item
+    else
+      redirect_to root_path
     end
+    
   end
 
   private

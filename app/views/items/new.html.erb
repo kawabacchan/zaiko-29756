@@ -24,7 +24,7 @@
         <% end %>
       </div>
       <%= form_with url:import_items_path, local: true do |f| %>
-        <%= f.file_field :file %>
+        <%= f.file_field :file, accept: ".xlsx" %>
         <%= f.submit "インポート"%>
       <% end %>
     </div>

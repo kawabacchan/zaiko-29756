@@ -6,37 +6,59 @@
   <div class="main-display">
     <div class="top-display">
       <div class="top-display-title">
-        <%= @company.name %> > 店舗 > 登録
+        店舗登録 > <%= @company.name %>
       </div>
       <div class="item-form-and-error">
         <%= form_with model: [@company, @shop], url: company_shops_path, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
-          <ul class="item-form">
-            <li><p>店舗名</p><%= f.text_field :name %></li>
-            <li><p>都道府県</p><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"category-select"}) %></li>
-            <li><p>配送日数</p><%= f.number_field :delivery_days, min:1 %></li>
-            <li><%= f.submit "登録", class:"item-form-btn"%></li>
-          </ul>
+          <table>
+            <tr>
+              <th class="th-shop-name">店舗名</th>
+              <th class="th-shop-prefecture">都道府県</th>
+              <th class="th-shop-delivery-days">配送日数</th>
+            </tr>
+            <tr>
+              <td><%= f.text_field :name, class:"shop-code-form shop-form" %></td>
+              <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form shop-form"}) %></td>
+              <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form shop-form" %></td>
+              <td><%= f.submit "登録" %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+      <div class="import-file">
+        <p>店舗登録（.xlsxファイル）</p>
+        <%= form_with url:import_company_shops_path, local: true do |f| %>
+          <%= f.file_field :file, accept: ".xlsx" %>
+          <%= f.submit "インポート"%>
         <% end %>
       </div>
     </div>
 
     <div class="lower-display">
-
       <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops %>
-          <% @shops.each do |shop|%>
-            <div class="shop-display-content">
-              <%= shop.name %>
-              <%= shop.prefecture.name %>
-              <%= shop.delivery_days %>
-              <%= link_to "編集", edit_company_shop_path(id: shop.id) %>
-              <%= link_to "削除", company_shop_path(id: shop.id), method: :delete %>
-            </div>
-          <% end %>
+        <%if @shops.where(company_id: @company.id).present? %>
+          <table>
+            <tr>
+              <th class="th-shop-name">店舗名</th>
+              <th class="th-shop-prefecture">都道府県</th>
+              <th class="th-shop-delivery-days">配送日数</th>
+            </tr>
+            <% @shops.where(company_id: @company.id).each do |shop|%>
+              <tr>
+                <td><%= shop.name %></td>
+                <td><%= shop.prefecture.name %></td>
+                <td><%= shop.delivery_days %></td>
+                <td><%= link_to "編集", edit_company_shop_path(id: shop.id) %></td>
+                <td><%= link_to "削除", company_shop_path(id: shop.id), method: :delete %></td>
+              </tr>
+            <% end%>
+          </table>
+        <% else %>
+          <p>登録店舗なし</p>
         <% end %>
       </div>
-
     </div>
+
   </div>
 </div>

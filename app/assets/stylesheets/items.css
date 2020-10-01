@@ -122,8 +122,37 @@
   width: 40px;
 }
 
+.shop-form {
+  height: 30px;
+  border: none;
+}
+
+.shop-name-form {
+  width: 200px;
+}
+
+.shop-prefecture-form {
+  width: 100px;
+}
+
+.shop-delivery-days-form {
+  width: 100px;
+}
+
 .sort-by-category, .sort-creation-list {
   display: none;
+}
+
+.th-shop-name {
+  width: 200px;
+}
+
+.th-shop-prefecture {
+  width: 100px;
+}
+
+.th-shop-delivery-days {
+  width: 100px;
 }
 
 .category-name {
@@ -148,7 +177,6 @@
 
 th, td {
   border: 1px solid black;
-  padding: 0 5px;
   text-align: center;
 }
 

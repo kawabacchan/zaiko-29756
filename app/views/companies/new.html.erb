@@ -43,7 +43,6 @@
               <div class="company-display-content">
                 <tr>
                   <td><%= company.name %></td>
-                  <td><%=link_to "店舗登録", new_company_shop_path(company.id) %></td>
                   <td><%=link_to "編集", edit_company_path(company.id) %></td>
                   <td><%=link_to "削除", company_path(company.id), method: :delete %></td>
                 </tr>

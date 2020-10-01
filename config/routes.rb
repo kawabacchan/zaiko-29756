@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection {get :increase}
     collection {get :delivery}
     resources :shops, only: [:index, :new, :create, :edit, :update, :destroy] do
+      collection {post :import}
       resources :orders, only: [:index, :new, :create, :destroy]
     end
   end

@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    @shops = Shop.includes(:company)
   end
 
   def create

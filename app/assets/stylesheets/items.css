@@ -40,8 +40,8 @@
 }
 
 .item-form {
-  height: 30px;
   border: none;
+  text-align: center;
 }
 
 .item-submit-form {

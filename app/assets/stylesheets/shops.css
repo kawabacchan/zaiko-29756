@@ -1,5 +1,4 @@
 .shop-form {
-  height: 30px;
   border: none;
   text-align: center;
 }
@@ -8,8 +7,12 @@
   width: 49px;
 }
 
-.th-shop-name, .td-shop-name, .shop-name-form  {
+.th-shop-name, .td-shop-name  {
   width: 200px;
+}
+
+.shop-name-form  {
+  width: 199px;
 }
 
 .th-shop-prefecture, .td-shop-prefecture {

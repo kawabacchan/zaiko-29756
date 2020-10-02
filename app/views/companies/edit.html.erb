@@ -17,9 +17,11 @@
         <table>
           <tr class="first-row">
             <th class="th-company-name">企業名</th>
+            <th class="th-edit">編集</th>
           </tr>
           <tr>
             <th class="th-company-name">企業名</th>
+            <th class="th-edit">編集</th>
           </tr>
           <% @companies.each do |company|%>
             <% if company.id == @company.id%>
@@ -34,7 +36,8 @@
               </div>
             <% else %>
               <tr>
-                <td><%= company.name %></td>
+                <td class="td-company-name"><%= company.name %></td>
+                <td><%= link_to "編集", edit_company_path %></td>
               </tr>
             <% end %>
           <% end %>

@@ -52,7 +52,7 @@
               <td class="td-item-name"><%= item.name %></th>
               <td class="td-item-stock"><%= item.stock %></th>
               <td class="td-item-monthly-sales"><%= item.monthly_sales %></th>
-              <td><%= link_to "≫", edit_item_path %></td>
+              <td><%= link_to "≫", edit_item_path(item.id) %></td>
             </tr>
           <% end %>
         <% end %>

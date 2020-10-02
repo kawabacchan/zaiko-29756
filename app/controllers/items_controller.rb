@@ -40,10 +40,20 @@ class ItemsController < ApplicationController
 
   def import
     if params[:file].present?
-      Item.import(params[:file])
+      xlsx = Roo::Excelx.new(params[:file].path)
+      xlsx.each_row_streaming(offset: 1) do |row|
+        if Category.pluck(:name).include?(row[0].value)
+          if Item.where(code: row[1].value).present?
+            Item.where(code: row[1].value).update(category_id: Category.find_by(name: row[0].value).id, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
+          else
+            item = Item.new(category_id: Category.find_by(name: row[0].value).id, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
+            item.save
+          end
+        end
+      end
       redirect_to new_item_path
     else
-      redirect_to new_item_path
+      render :new
     end
   end
     

@@ -30,12 +30,6 @@
   flex-direction: column;
 }
 
-.content-btn ul {
-  margin: 1em 0;
-  padding-left: 30px;
-  list-style-type: disc;
-}
-
 .main-display {
   background-color:white;
   width: calc( 100% - 150px);

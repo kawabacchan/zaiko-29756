@@ -15,16 +15,5 @@ class Item < ApplicationRecord
     validates :stock, :monthly_sales
   end
 
-  def self.import(file)
-    xlsx = Roo::Excelx.new(file.path)
-    xlsx.each_row_streaming(offset: 1) do |row|
-      if self.where(code: row[1].value).present?
-        self.where(code: row[1].value).update(category_id: row[0].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
-      else
-        item = self.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
-        item.save
-      end
-    end
-  end
 
 end

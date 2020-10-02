@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
 
-  before_action :all_shop, only: [:new, :create, :edit, :update, :destroy]
+  before_action :all_shop, only: [:new, :create, :edit, :update, :destroy, :recieve]
   before_action :set_shop, only: [:edit, :update, :destroy]
 
   def index
@@ -65,6 +65,10 @@ class ShopsController < ApplicationController
     else
       redirect_to new_company_shop_path
     end
+  end
+
+  def recieve
+    @company = Company.find(params[:company_id])
   end
 
   private

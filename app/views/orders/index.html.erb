@@ -11,20 +11,27 @@
     </div>
 
     <div class="lower-display">
-      <div class="order-display-content">
+      <table>
+        <tr class="first-row">
+          <th class="th-company-name">企業名</th>
+          <th class="th-shop-name">店舗名</th>
+          <th class="th-item-name">商品名</th>
+          <th class="th-item-stock">数量</th>
+          <th class="th-order-date">登録日時</th>
+        </tr>
         <% @orders.each do |order| %>
-          <ul>
-            <li><%= order.shop.company.name %></li>
-            <li><%= order.shop.name %></li>
-            <li><%= order.item.name %></li>
-            <li><%= order.sales_numbers %></li>
-            <li><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></li>
+          <tr>
+            <td class="td-company-name"><%= order.shop.company.name %></td>
+            <td class="td-shop-name"><%= order.shop.name %></td>
+            <td class="td-item-name"><%= order.item.name %></td>
+            <td class="td-item-stock"><%= order.sales_numbers %></td>
+            <td class="td-order-date"><%= order.created_at.strftime("%Y/%-m/%-d/%H:%M") %></td>
             <% if order.created_at >= Date.today %>
-              <li><%= link_to '削除',company_shop_order_path(id: order.id), method: :delete %></li>
+              <td><%= link_to '削除',company_shop_order_path(id: order.id), method: :delete %></td>
             <% end%>
-          </ul>
+          </tr>
         <% end %>
-      </div>
+      </table>
     </div>
   </div>
 </div>

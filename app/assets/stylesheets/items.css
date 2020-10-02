@@ -40,6 +40,7 @@
   background-color:white;
   width: calc( 100% - 150px);
   height: 100vh;
+  position: relative;
 }
 
 .top-display {
@@ -122,6 +123,10 @@
   width: 40px;
 }
 
+.th-company-name {
+  width: 150px;
+}
+
 .shop-form {
   height: 30px;
   border: none;
@@ -156,6 +161,10 @@
   width: 100px;
 }
 
+.th-order-date {
+  width: 200px;
+}
+
 .category-name {
   font-size: 20px;
   margin-top: 10px;
@@ -167,13 +176,36 @@
 }
 
 .lower-display {
-  height: calc(100vh - 180px);
+  height: calc(100vh - 250px);
   overflow: scroll;
-  padding: 10px;
+  margin: 10px;
 }
 
-.lower-display ul {
-  display: flex;
+
+.first-row {
+  position: absolute;
+  z-index: 0;
+  background-color: white;
+}
+
+.td-company-name {
+  width: 150px;
+}
+
+.td-shop-name {
+  width: 200px;
+}
+
+.td-item-name {
+  width: 200px;
+}
+
+.td-item-stock {
+  width: 100px;
+}
+
+.td-order-date {
+  width: 200px;
 }
 
 th, td {

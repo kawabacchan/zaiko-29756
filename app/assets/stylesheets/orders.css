@@ -1,19 +1,20 @@
-.th-order-date {
-  width: 200px;
-}
-
-.th-order-sales-numbers {
-  width: 100px;
-}
-
-.td-order-date {
-  width: 200px;
-}
-
-.td-order-form {
-  width: 100px;
-}
-
 .order-form {
+  border: none;
+  text-align: center;
+}
+
+.order-submit-form {
+  width: 49px;
+}
+
+.th-order-date, .td-order-date {
+  width: 200px;
+}
+
+.th-order-sales-numbers, .td-order-sales-numbers {
   width: 100px;
+}
+
+.order-sales-numbers-form {
+  width: 99px;
 }

@@ -26,10 +26,10 @@
 
 /* 全体画面の左側(項目選択画面) */
 .side-bar {
-  width: 150px;
+  width: 200px;
   height: 100vh;
   border-right: 2px solid black;
-  padding: 10px;
+  padding: 20px;
 }
 
 .side-header {
@@ -78,6 +78,7 @@
   margin: 10px;
 }
 
+
 .first-row {
   position: absolute;
   z-index: 0;
@@ -87,6 +88,10 @@
 th, td {
   border: 1px solid black;
   text-align: center;
+}
+
+.th-edit, .th-destory, .th-select, .th-confirm {
+  width: 50px;
 }
 
 .red {

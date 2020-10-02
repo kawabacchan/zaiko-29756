@@ -19,11 +19,13 @@
               <th class="th-shop-name">店舗名</th>
               <th class="th-shop-prefecture">都道府県</th>
               <th class="th-shop-delivery-days">配送日数</th>
+              <th class="th-edit">編集</th>
             </tr>
             <tr>
               <th class="th-shop-name">店舗名</th>
               <th class="th-shop-prefecture">都道府県</th>
               <th class="th-shop-delivery-days">配送日数</th>
+              <th class="th-edit">編集</th>
             </tr>
             <% @shops.each do |shop|%>
               <% if shop.id == @shop.id %>
@@ -34,16 +36,16 @@
                       <td><%= f.text_field :name, class:"shop-code-form shop-form" %></td>
                       <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form shop-form"}) %></td>
                       <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form shop-form" %></td>
-                      <td><%= f.submit "確定" %></td>
+                      <td><%= f.submit "確定", class:"shop-submit-form shop-form" %></td>
                     </tr>
                   <% end %>
                 </div>
               <% else %>
                 <tr>
-                  <td><%= shop.name %></td>
-                  <td><%= shop.prefecture.name %></td>
-                  <td><%= shop.delivery_days %></td>
-                  <td><%= link_to "編集", edit_company_shop_path(id: shop.id) %></td>
+                  <td class="td-shop-name"><%= shop.name %></td>
+                  <td class="td-shop-prefecture"><%= shop.prefecture.name %></td>
+                  <td class="td-shop-delivery-days"><%= shop.delivery_days %></td>
+                  <td><%= link_to "≫", edit_company_shop_path(id: shop.id) %></td>
                 </tr>
               <% end%>
             <% end %>

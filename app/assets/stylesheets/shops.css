@@ -4,32 +4,28 @@
   text-align: center;
 }
 
-.shop-name-form {
+.shop-submit-form {
+  width: 49px;
+}
+
+.th-shop-name, .td-shop-name, .shop-name-form  {
   width: 200px;
 }
 
+.th-shop-prefecture, .td-shop-prefecture {
+  width: 100px;
+}
+
 .shop-prefecture-form {
+  width: 99px;
+}
+
+.th-shop-delivery-days, .td-shop-delivery-days {
   width: 100px;
 }
 
 .shop-delivery-days-form {
-  width: 100px;
-}
-
-.th-shop-name {
-  width: 200px;
-}
-
-.th-shop-prefecture {
-  width: 100px;
-}
-
-.th-shop-delivery-days {
-  width: 100px;
-}
-
-.td-shop-name {
-  width: 200px;
+  width: 99px;
 }
 
 .delivery-table {

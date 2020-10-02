@@ -13,11 +13,11 @@
           <%= render "items/error_messages", model: f.object %>
           <table>
             <tr>
-              <th class="th-item-category">企業名</th>
+              <th class="th-company-name">企業名</th>
             </tr>
             <tr>
-              <td><%= f.text_field :name, class:"item-name-form item-form" %></td>
-              <td><%= f.submit "登録", class:"item-submit-form item-form" %></td>
+              <td><%= f.text_field :name, class:"company-name-form company-form" %></td>
+              <td><%= f.submit "登録", class:"company-submit-form company-form" %></td>
             </tr>
           </table>
         <% end %>
@@ -36,24 +36,26 @@
         <table>
           <tr class="first-row">
             <th class="th-company-name">企業名</th>
+            <th class="th-edit">編集</th>
+            <th class="th-destory">削除</th>
           </tr>
           <tr>
             <th class="th-company-name">企業名</th>
+            <th class="th-edit">編集</th>
+            <th class="th-destory">削除</th>
           </tr>
           <% @companies.each do |company|%>
-            <div class="company-display-content">
-              <tr>
-                <td><%= company.name %></td>
-                <td><%=link_to "編集", edit_company_path(company.id) %></td>
-                <td><%=link_to "削除", company_path(company.id), method: :delete %></td>
-              </tr>
-            </div>
+            <tr>
+              <td class="td-company-name"><%= company.name %></td>
+              <td><%=link_to "≫", edit_company_path(company.id) %></td>
+              <td><%=link_to "≫", company_path(company.id), method: :delete %></td>
+            </tr>
           <% end %>
         </table>
       <% else %>
         <p>登録企業なし</p>
       <% end %>
     </div>
-    
+
   </div>
 </div>

@@ -25,35 +25,6 @@
   width: 1200px;
 }
 
-.item-form {
-  height: 30px;
-  border: none;
-}
-
-.item-category-form {
-  width: 100px;
-}
-
-.item-code-form {
-  width: 100px;
-}
-
-.item-name-form {
-  width: 200px;
-}
-
-.item-stock-form {
-  width: 100px;
-}
-
-.item-monthly-sales-form {
-  width: 150px;
-}
-
-.item-submit-form {
-  width: 40px;
-}
-
 .sort-by-category, .sort-creation-list {
   display: none;
 }
@@ -68,50 +39,51 @@
   margin-top: 10px;
 }
 
-.td-item-name {
+.item-form {
+  height: 30px;
+  border: none;
+}
+
+.item-submit-form {
+  width: 49px;
+}
+
+.th-item-category, .td-item-category {
+  width: 100px;
+}
+
+.item-category-form {
+  width: 99px;
+}
+
+.th-item-code, .td-item-code {
+  width: 100px;
+}
+
+.item-code-form {
+  width: 99px;
+}
+
+.th-item-name, .td-item-name {
   width: 200px;
 }
 
-.td-item-stock {
+.item-name-form {
+  width: 199px;
+}
+
+.th-item-stock, .td-item-stock {
   width: 100px;
 }
 
-.td-item-category {
-  width: 100px;
+.item-stock-form  {
+  width: 99px;
 }
 
-.td-item-code {
-  width: 100px;
-}
-
-.td-item-name {
-  width: 200px;
-}
-
-.td-item-stock {
-  width: 100px;
-}
-
-.td-item-monthly-sales {
+.th-item-monthly-sales, .td-item-monthly-sales {
   width: 150px;
 }
 
-.th-item-category {
-  width: 100px;
-}
-
-.th-item-code {
-  width: 100px;
-}
-
-.th-item-name {
-  width: 200px;
-}
-
-.th-item-stock {
-  width: 100px;
-}
-
-.th-item-monthly-sales {
-  width: 150px;
+.item-monthly-sales-form {
+  width: 149px;
 }

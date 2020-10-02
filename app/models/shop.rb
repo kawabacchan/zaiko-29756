@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :company
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :items, through: :orders
 
   extend ActiveHash::Associations::ActiveRecordExtensions

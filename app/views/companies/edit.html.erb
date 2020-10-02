@@ -13,34 +13,33 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @companies %>
-          <table>
-            <tr>
-              <th class="th-company-name">企業名</th>
-            </tr>
-            <% @companies.each do |company|%>
-              <% if company.id == @company.id%>
-                <div class="item-form-and-error">
-                  <%= form_with model:@company, local: true do |f| %>
-                    <%= render "items/error_messages", model: f.object %>
-                    <tr>
-                      <td><%= f.text_field :name %></td>
-                      <td><%= f.submit "確定" %></td>
-                    </tr>
-                  <% end %>
-                </div>
-              <% else %>
-                <div class="company-display-content">
+      <%if @companies %>
+        <table>
+          <tr class="first-row">
+            <th class="th-company-name">企業名</th>
+          </tr>
+          <tr>
+            <th class="th-company-name">企業名</th>
+          </tr>
+          <% @companies.each do |company|%>
+            <% if company.id == @company.id%>
+              <div class="item-form-and-error">
+                <%= form_with model:@company, local: true do |f| %>
+                  <%= render "items/error_messages", model: f.object %>
                   <tr>
-                    <td><%= company.name %></td>
+                    <td><%= f.text_field :name, class:"company-name-form company-form" %></td>
+                    <td><%= f.submit "確定", class:"company-submit-form company-form" %></td>
                   </tr>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <tr>
+                <td><%= company.name %></td>
+              </tr>
             <% end %>
-          </table>
-        <% end %>
-      </div>
+          <% end %>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

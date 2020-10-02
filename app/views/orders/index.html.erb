@@ -16,26 +16,26 @@
           <th class="th-company-name">企業名</th>
           <th class="th-shop-name">店舗名</th>
           <th class="th-item-name">商品名</th>
-          <th class="th-item-stock">数量</th>
+          <th class="td-order-sales-numbers">数量</th>
           <th class="th-order-date">登録日時</th>
+          <th class="th-destory">削除</th>
         </tr>
         <tr>
           <th class="th-company-name">企業名</th>
           <th class="th-shop-name">店舗名</th>
           <th class="th-item-name">商品名</th>
-          <th class="th-item-stock">数量</th>
+          <th class="td-order-sales-numbers">数量</th>
           <th class="th-order-date">登録日時</th>
+          <th class="th-destory">削除</th>
         </tr>
         <% @orders.each do |order| %>
           <tr>
             <td class="td-company-name"><%= order.shop.company.name %></td>
             <td class="td-shop-name"><%= order.shop.name %></td>
             <td class="td-item-name"><%= order.item.name %></td>
-            <td class="td-item-stock"><%= order.sales_numbers %></td>
+            <td class="td-order-sales-numbers"><%= order.sales_numbers %></td>
             <td class="td-order-date"><%= order.created_at.strftime("%Y/%-m/%-d/%H:%M") %></td>
-            <% if order.created_at >= Date.today %>
-              <td><%= link_to '削除',company_shop_order_path(id: order.id), method: :delete %></td>
-            <% end%>
+            <td><%= link_to '≫',company_shop_order_path(id: order.id), method: :delete %></td>
           </tr>
         <% end %>
       </table>

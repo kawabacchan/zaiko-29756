@@ -38,35 +38,29 @@
           <% if @items %>
             <% @items.each do |item|%>
               <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                <div class="item-display-content">
-                  <tr class="red">
-                    <td><%= item.category.name %></td>
-                    <td><%= item.code%></td>
-                    <td><%= item.name%></td>
-                    <td><%= item.stock%></td>
-                    <td><%= item.monthly_sales%></td>
-                  </tr>
-                </div>
+                <tr class="red">
+                  <td><%= item.category.name %></td>
+                  <td><%= item.code%></td>
+                  <td><%= item.name%></td>
+                  <td><%= item.stock%></td>
+                  <td><%= item.monthly_sales%></td>
+                </tr>
               <% elsif item.stock <= item.monthly_sales * 0.5 %>
-                <div class="item-display-content">
-                  <tr class="yellow">
-                    <td><%= item.category.name %></td>
-                    <td><%= item.code%></td>
-                    <td><%= item.name%></td>
-                    <td><%= item.stock%></td>
-                    <td><%= item.monthly_sales%></td>
-                  </tr>
-                </div>
+                <tr class="yellow">
+                  <td><%= item.category.name %></td>
+                  <td><%= item.code%></td>
+                  <td><%= item.name%></td>
+                  <td><%= item.stock%></td>
+                  <td><%= item.monthly_sales%></td>
+                </tr>
               <% else %>
-                <div class="item-display-content">
-                  <tr>
-                    <td><%= item.category.name %></td>
-                    <td><%= item.code%></td>
-                    <td><%= item.name%></td>
-                    <td><%= item.stock%></td>
-                    <td><%= item.monthly_sales%></td>
-                  </tr>
-                </div>
+                <tr>
+                  <td><%= item.category.name %></td>
+                  <td><%= item.code%></td>
+                  <td><%= item.name%></td>
+                  <td><%= item.stock%></td>
+                  <td><%= item.monthly_sales%></td>
+                </tr>
               <%end%>
             <% end %>
           <% end %>
@@ -88,32 +82,26 @@
             <% @items.each do |item| %>
               <%if item.category.name == category.name %>
                 <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                  <div class="item-display-content">
-                    <tr class="red">
-                      <td><%= item.code%></td>
-                      <td><%= item.name%></td>
-                      <td><%= item.stock%></td>
-                      <td><%= item.monthly_sales%></td>
-                    </tr>
-                  </div>
+                  <tr class="red">
+                    <td><%= item.code%></td>
+                    <td><%= item.name%></td>
+                    <td><%= item.stock%></td>
+                    <td><%= item.monthly_sales%></td>
+                  </tr>
                 <% elsif item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                  <div class="item-display-content">
-                    <tr class="yellow">
-                      <td><%= item.code%></td>
-                      <td><%= item.name%></td>
-                      <td><%= item.stock%></td>
-                      <td><%= item.monthly_sales%></td>
-                    </tr>
-                  </div>
+                  <tr class="yellow">
+                    <td><%= item.code%></td>
+                    <td><%= item.name%></td>
+                    <td><%= item.stock%></td>
+                    <td><%= item.monthly_sales%></td>
+                  </tr>
                 <% else %>
-                  <div class="item-display-content">
-                    <tr>
-                      <td><%= item.code%></td>
-                      <td><%= item.name%></td>
-                      <td><%= item.stock%></td>
-                      <td><%= item.monthly_sales%></td>
-                    </tr>
-                  </div>
+                  <tr>
+                    <td><%= item.code%></td>
+                    <td><%= item.name%></td>
+                    <td><%= item.stock%></td>
+                    <td><%= item.monthly_sales%></td>
+                  </tr>
                 <% end %>
               <% end %>
             <% end %>
@@ -136,15 +124,13 @@
           </tr>
           <% @items.each do |item|%>
             <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-              <div class="item-display-content">
-                <tr>
-                  <td><%= item.category.name %></td>
-                  <td><%= item.code%></td>
-                  <td><%= item.name%></td>
-                  <td><%= item.stock%></td>
-                  <td><%= item.monthly_sales%></td>
-                </tr>
-              </div>
+              <tr>
+                <td><%= item.category.name %></td>
+                <td><%= item.code%></td>
+                <td><%= item.name%></td>
+                <td><%= item.stock%></td>
+                <td><%= item.monthly_sales%></td>
+              </tr>
             <% end %>
           <% end %>
         </table>
@@ -162,15 +148,13 @@
           </tr>
           <% @items.each do |item|%>
             <% if (item.stock <= item.monthly_sales * 0.5) && (item.stock > (item.monthly_sales * 0.1)+ 3) %>
-              <div class="item-display-content">
-                <tr>
-                  <td><%= item.category.name %></td>
-                  <td><%= item.code%></td>
-                  <td><%= item.name%></td>
-                  <td><%= item.stock%></td>
-                  <td><%= item.monthly_sales%></td>
-                </tr>
-              </div>
+              <tr>
+                <td><%= item.category.name %></td>
+                <td><%= item.code%></td>
+                <td><%= item.name%></td>
+                <td><%= item.stock%></td>
+                <td><%= item.monthly_sales%></td>
+              </tr>
             <% end %>
           <% end %>
         </table>

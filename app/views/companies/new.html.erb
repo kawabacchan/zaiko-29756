@@ -32,28 +32,28 @@
     </div>
 
     <div class="lower-display">
-
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @companies %>
-          <table>
-            <tr>
-              <th class="th-company-name">企業名</th>
-            </tr>
-            <% @companies.each do |company|%>
-              <div class="company-display-content">
-                <tr>
-                  <td><%= company.name %></td>
-                  <td><%=link_to "編集", edit_company_path(company.id) %></td>
-                  <td><%=link_to "削除", company_path(company.id), method: :delete %></td>
-                </tr>
-              </div>
-            <% end %>
-          </table>
-        <% else %>
-          <p>登録企業なし</p>
-        <% end %>
-      </div>
-
+      <%if @companies %>
+        <table>
+          <tr class="first-row">
+            <th class="th-company-name">企業名</th>
+          </tr>
+          <tr>
+            <th class="th-company-name">企業名</th>
+          </tr>
+          <% @companies.each do |company|%>
+            <div class="company-display-content">
+              <tr>
+                <td><%= company.name %></td>
+                <td><%=link_to "編集", edit_company_path(company.id) %></td>
+                <td><%=link_to "削除", company_path(company.id), method: :delete %></td>
+              </tr>
+            </div>
+          <% end %>
+        </table>
+      <% else %>
+        <p>登録企業なし</p>
+      <% end %>
     </div>
+    
   </div>
 </div>

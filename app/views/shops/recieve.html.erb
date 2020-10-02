@@ -11,27 +11,30 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops.present? %>
-          <table>
+      <%if @shops.present? %>
+        <table>
+          <tr class="first-row">
+            <th class="th-shop-name">店舗名</th>
+            <th class="th-shop-prefecture">都道府県</th>
+            <th class="th-shop-delivery-days">配送日数</th>
+          </tr>
+          <tr>
+            <th class="th-shop-name">店舗名</th>
+            <th class="th-shop-prefecture">都道府県</th>
+            <th class="th-shop-delivery-days">配送日数</th>
+          </tr>
+          <% @shops.each do |shop|%>
             <tr>
-              <th class="th-shop-name">店舗名</th>
-              <th class="th-shop-prefecture">都道府県</th>
-              <th class="th-shop-delivery-days">配送日数</th>
+              <td><%= shop.name %></td>
+              <td><%= shop.prefecture.name %></td>
+              <td><%= shop.delivery_days %></td>
+              <td><%= link_to "選択", new_company_shop_order_path(shop_id: shop.id) %></td>
             </tr>
-            <% @shops.each do |shop|%>
-              <tr>
-                <td><%= shop.name %></td>
-                <td><%= shop.prefecture.name %></td>
-                <td><%= shop.delivery_days %></td>
-                <td><%= link_to "選択", new_company_shop_order_path(shop_id: shop.id) %></td>
-              </tr>
-            <% end%>
-          </table>
-        <% else %>
-          <p>登録店舗なし</p>
-        <% end %>
-      </div>
+          <% end%>
+        </table>
+      <% else %>
+        <p>登録店舗なし</p>
+      <% end %>
     </div>
 
   </div>

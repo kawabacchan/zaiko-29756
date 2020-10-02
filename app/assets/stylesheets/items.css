@@ -204,8 +204,40 @@
   width: 100px;
 }
 
+.td-item-category {
+  width: 100px;
+}
+
+.td-item-code {
+  width: 100px;
+}
+
+.td-item-name {
+  width: 200px;
+}
+
+.td-item-stock {
+  width: 100px;
+}
+
+.td-item-monthly-sales {
+  width: 150px;
+}
+
+.th-order-sales-numbers {
+  width: 100px;
+}
+
 .td-order-date {
   width: 200px;
+}
+
+.td-order-form {
+  width: 100px;
+}
+
+.order-form {
+  width: 100px;
 }
 
 th, td {

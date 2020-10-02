@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
 
-  before_action :all_shop, only: [:new, :create, :edit, :update, :destroy, :recieve]
+  before_action :all_shop, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_shop, only: [:edit, :update, :destroy]
 
   def index
@@ -69,6 +69,7 @@ class ShopsController < ApplicationController
 
   def recieve
     @company = Company.find(params[:company_id])
+    @shops = Shop.where(company_id: params[:company_id])
   end
 
   private

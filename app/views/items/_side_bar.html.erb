@@ -46,15 +46,17 @@
       注文
     </div>
     <div class="side-item content-btn">
-      <% if Order.find(1).blank? %>
-        <p>注文履歴なし</p>>
-      <% else %>
-        <ul>
-          <li><%=link_to '一覧表示', company_shop_orders_path(item_id: Order.find(1).item_id, shop_id: Order.find(1).shop_id, company_id: Order.find(1).shop.company_id) %></li>
-          <li><%=link_to '登録', recieve_companies_path %></li>
-        </ul>
-      <% end %>
-    </div>
+      <ul>
+        <li>
+          <% if Order.all.blank? %>
+            <p>注文履歴なし</p>
+          <% else %>
+            <%=link_to '一覧表示', company_shop_orders_path(item_id: Order.find(1).item_id, shop_id: Order.find(1).shop_id, company_id: Order.find(1).shop.company_id) %>
+          <% end %>
+        </li>
+        <li><%=link_to '登録', recieve_companies_path %></li>
+      </ul>
+  </div>
   </div>
 
 

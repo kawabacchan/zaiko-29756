@@ -19,6 +19,13 @@
           <th class="th-item-stock">数量</th>
           <th class="th-order-date">登録日時</th>
         </tr>
+        <tr>
+          <th class="th-company-name">企業名</th>
+          <th class="th-shop-name">店舗名</th>
+          <th class="th-item-name">商品名</th>
+          <th class="th-item-stock">数量</th>
+          <th class="th-order-date">登録日時</th>
+        </tr>
         <% @orders.each do |order| %>
           <tr>
             <td class="td-company-name"><%= order.shop.company.name %></td>

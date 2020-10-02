@@ -8,27 +8,80 @@
       <div class="top-display-title">
         <%= @shop.company.name %> > <%= @shop.name %> > 注文数入力
       </div>
-    <%= @shop.company.name %> > <%= @shop.name %> > <%=link_to '一覧表示', company_shop_orders_path %>
     </div>
 
     <div class="lower-display">
 
-      <div class="sort-by-code", id="sort-by-code-display">
-        <% if @items %>
+      <div>
+        <% if @items.present? %>
+          <table>
+            <tr class="first-row">
+              <th class="th-item-category">カテゴリー</th>
+              <th class="th-item-code">商品コード</th>
+              <th class="th-item-name">商品名</th>
+              <th class="th-item-stock">在庫数</th>
+              <th class="th-item-monthly-sales">想定月間販売数</th>
+              <th class="th-order-sales-numbers">注文数</th>
+            </tr>
+            <tr>
+              <th class="th-item-category">カテゴリー</th>
+              <th class="th-item-code">商品コード</th>
+              <th class="th-item-name">商品名</th>
+              <th class="th-item-stock">在庫数</th>
+              <th class="th-item-monthly-sales">想定月間販売数</th>
+              <th class="th-order-sales-numbers">注文数</th>
+            </tr>
+          </table>
           <% @items.each do |item|%>
             <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-              <div class="red">
-                <%= render partial: "order_item_display_content", locals: {item: item} %>
-              </div>
-            <% elsif item.stock <= item.monthly_sales * 0.5 %>
-              <div class="yellow">
-                <%= render partial: "order_item_display_content", locals: {item: item} %>
-              </div>
+              <%=form_with model:[@shop, @order], url: company_shop_orders_path do |f| %>
+                <table>
+                  <tr class="red">
+                    <td class="td-item-category"><%= item.category.name %></td>
+                    <td class="td-item-code"><%= item.code%></td>
+                    <td class="td-item-name"><%= item.name%></td>
+                    <td class="td-item-stock"><%= item.stock%></td>
+                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <td class="td-order-form"><%= f.number_field :sales_numbers, min:1, class:"order-form" %></td>
+                    <td><%= f.number_field :item_id, value:item.id, type:"hidden" %></td>
+                    <td><%= f.submit "確定" %></td>
+                  </tr>
+                </table>
+              <% end %>
+            <% elsif item.stock <= (item.monthly_sales * 0.5) %>
+              <%=form_with model:[@shop, @order], url: company_shop_orders_path do |f| %>
+                <table>
+                  <tr class="yellow">
+                    <td class="td-item-category"><%= item.category.name %></td>
+                    <td class="td-item-code"><%= item.code%></td>
+                    <td class="td-item-name"><%= item.name%></td>
+                    <td class="td-item-stock"><%= item.stock%></td>
+                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <td class="td-order-form"><%= f.number_field :sales_numbers, min:1, class:"order-form" %></td>
+                    <td><%= f.number_field :item_id, value:item.id, type:"hidden" %></td>
+                    <td><%= f.submit "確定" %></td>
+                  </tr>
+                </table>
+              <% end %>
             <% else %>
-              <%= render partial: "order_item_display_content", locals: {item: item} %>
-              
-            <%end%>
+              <%=form_with model:[@shop, @order], url: company_shop_orders_path do |f| %>
+                <table>
+                  <tr>
+                    <td class="td-item-category"><%= item.category.name %></td>
+                    <td class="td-item-code"><%= item.code%></td>
+                    <td class="td-item-name"><%= item.name%></td>
+                    <td class="td-item-stock"><%= item.stock%></td>
+                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <td class="td-order-form"><%= f.number_field :sales_numbers, min:1, class:"order-form" %></td>
+                    <td><%= f.number_field :item_id, value:item.id, type:"hidden" %></td>
+                    <td><%= f.submit "確定" %></td>
+                  </tr>
+                </table>
+              <%end%>
+            <% end %>
           <% end %>
+        <% else %>
+          <p> 注文できる商品がありません </p>
         <% end %>
       </div>
 

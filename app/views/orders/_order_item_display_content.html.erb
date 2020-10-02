@@ -12,10 +12,4 @@
       <li><%= f.submit "確定", class: "order-form-btn" %></li>
     </ul>
   <% end %>
-  
-  <% sum = 0 %>
-  <% Order.where(item_id: item.id, shop_id: @shop.id).each do |order| %>
-    <% sum += order.sales_numbers %>
-  <% end %>
-  <%= sum %>
 </div>

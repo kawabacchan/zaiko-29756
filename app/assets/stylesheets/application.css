@@ -171,11 +171,9 @@ th, td {
 /* リンクボタン */
 
 a {
-  text-decoration: none;
   color: black;
 }
 
 a:hover {
-  text-decoration-line: underline;
   background-color: lightgray;
 }

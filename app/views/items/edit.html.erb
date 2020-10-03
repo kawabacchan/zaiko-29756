@@ -37,11 +37,11 @@
                 <%= render "error_messages", model: f.object %>
                 <tr>
                   <td><%= f.collection_select(:category_id, Category.all, :id, :name, {selected: item.category_id}, {class:"item-category-form item-form"}) %></td>
-                  <td><%= f.text_field :code, class:"item-code-form item-form", value: item.code %></td>
-                  <td><%= f.text_field :name, class:"item-name-form item-form", value: item.name %></td>
-                  <td><%= f.number_field :stock, min:0, class:"item-stock-form item-form", value: item.stock %></td>
-                  <td><%= f.number_field :monthly_sales, min:0, class:"item-monthly-sales-form item-form", value: item.monthly_sales %></td>
-                  <td><%= f.submit "確定", class:"item-submit-form item-form" %></td>
+                  <td><%= f.text_field :code, class:"item-code-form form", value: item.code %></td>
+                  <td><%= f.text_field :name, class:"item-name-form form", value: item.name %></td>
+                  <td><%= f.number_field :stock, min:0, class:"item-stock-form form", value: item.stock %></td>
+                  <td><%= f.number_field :monthly_sales, min:0, class:"item-monthly-sales-form form", value: item.monthly_sales %></td>
+                  <td><%= f.submit "確定", class:"submit-form form" %></td>
                 </tr>
               <% end %>
             </div>

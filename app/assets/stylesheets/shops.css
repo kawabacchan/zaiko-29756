@@ -1,12 +1,4 @@
-.shop-form {
-  border: none;
-  text-align: center;
-}
-
-.shop-submit-form {
-  width: 49px;
-}
-
+/* 店舗の表関連 */
 .th-shop-name, .td-shop-name  {
   width: 200px;
 }
@@ -31,6 +23,7 @@
   width: 99px;
 }
 
+/* 店舗の納期関連 */
 .delivery-table {
   width: 800px;
   height: 1130px;

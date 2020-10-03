@@ -1,10 +1,6 @@
-.company-form {
-  border: none;
-  text-align: center;
-}
-
-.company-submit-form {
-  width: 49px;
+.table-company-form {
+  position: absolute;
+  top: 70px;
 }
 
 .th-company-name, .td-company-name {

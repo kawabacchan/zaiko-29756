@@ -5,11 +5,12 @@
 </div>
 
 <div class="side-contents">
-  <div class="side-item content">
-    <div class="side-item-header">
+
+  <div class="side-ontent">
+    <div class="content-title">
       商品
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li><%=link_to '一覧表示', items_path %></li>
         <li><%=link_to '登録・編集・削除', new_item_path %></li>
@@ -17,11 +18,11 @@
     </div>
   </div>
 
-  <div class="side-item content">
-    <div class="side-item-header">
+  <div class="side-content">
+    <div class="content-title">
       企業
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li><%=link_to '一覧表示', companies_path %></li>
         <li><%=link_to '登録・編集・削除', new_company_path %></li>
@@ -29,11 +30,11 @@
     </div>
   </div>
 
-  <div class="side-item content">
-    <div class="side-item-header">
+  <div class="side-content">
+    <div class="content-title">
       店舗
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li><%=link_to '一覧表示', select_companies_path %></li>
         <li><%=link_to '登録・編集・削除', increase_companies_path %></li>
@@ -41,11 +42,11 @@
     </div>
   </div>
 
-  <div class="side-order">
-    <div class="side-item-header">
+  <div class="side-content">
+    <div class="content-title">
       注文
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li>
           <% if Order.all.blank? %>
@@ -59,10 +60,12 @@
   </div>
   </div>
 
-
-  <div class="side-item content">
-    <div class="side-item-header">
-      <%=link_to '納期表', delivery_companies_path %>
+  <div class="side-content">
+    <div class="content-title">
+      納期表
+    </div>
+    <div class="content-btn">
+      <%=link_to '表示', delivery_companies_path %>
     </div>
   </div>
   

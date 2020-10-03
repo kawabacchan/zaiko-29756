@@ -1,3 +1,8 @@
+.table-item-form {
+  position: absolute;
+  top: 70px;
+}
+
 .item-indicate-btn ul {
   display: flex;
 }
@@ -9,6 +14,8 @@
 }
 
 .import-file {
+  position: absolute;
+  top: 130px;
   margin: 10px;
   padding: 5px;
   background-color: lightgrey;
@@ -27,25 +34,6 @@
 
 .sort-by-category, .sort-creation-list {
   display: none;
-}
-
-.category-name {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.creation-list-title {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.item-form {
-  border: none;
-  text-align: center;
-}
-
-.item-submit-form {
-  width: 49px;
 }
 
 .th-item-category, .td-item-category {

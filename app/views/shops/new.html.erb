@@ -18,10 +18,10 @@
               <th class="th-shop-delivery-days">配送日数</th>
             </tr>
             <tr>
-              <td><%= f.text_field :name, class:"shop-code-form shop-form" %></td>
-              <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form shop-form"}) %></td>
-              <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form shop-form" %></td>
-              <td><%= f.submit "登録", class:"shop-submit-form shop-form" %></td>
+              <td><%= f.text_field :name, class:"shop-code-form form" %></td>
+              <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form form"}) %></td>
+              <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form form" %></td>
+              <td><%= f.submit "登録", class:"submit-form form" %></td>
             </tr>
           </table>
         <% end %>

@@ -13,7 +13,7 @@
       <div class="item-form-and-error">
         <%= form_with model:@item, local: true do |f| %>
           <%= render "error_messages", model: f.object %>
-          <table>
+          <table class="table-item-form">
             <tr>
               <th class="th-item-category">カテゴリー</th>
               <th class="th-item-code">商品コード</th>
@@ -22,12 +22,12 @@
               <th class="th-item-monthly-sales">想定月間販売数</th>
             </tr>
             <tr>
-              <td><%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-category-form item-form"}) %></td>
-              <td><%= f.text_field :code, class:"item-code-form item-form" %></td>
-              <td><%= f.text_field :name, class:"item-name-form item-form" %></td>
-              <td><%= f.number_field :stock, min:0, class:"item-stock-form item-form" %></td>
-              <td><%= f.number_field :monthly_sales, min:0, class:"item-monthly-sales-form item-form" %></td>
-              <td><%= f.submit "登録", class:"item-submit-form item-form" %></td>
+              <td><%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-category-form form"}) %></td>
+              <td><%= f.text_field :code, class:"item-code-form form" %></td>
+              <td><%= f.text_field :name, class:"item-name-form form" %></td>
+              <td><%= f.number_field :stock, min:0, class:"item-stock-form form" %></td>
+              <td><%= f.number_field :monthly_sales, min:0, class:"item-monthly-sales-form form" %></td>
+              <td><%= f.submit "登録", class:"submit-form form" %></td>
             </tr>
           </table>
         <% end %>

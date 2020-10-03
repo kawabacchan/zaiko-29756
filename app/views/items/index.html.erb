@@ -76,7 +76,7 @@
 
       <div class="sort-by-category", id="sort-by-category-display">
         <% Category.all.where.not(id:1).each do |category|%>
-          <div class="category-name">
+          <div class="list-title">
             <%= category.name %>
           </div>
           <table>
@@ -118,7 +118,7 @@
 
 
       <div class="sort-creation-list", id="sort-creation-list-display">
-        <div class="creation-list-title">
+        <div class="list-title">
           最優先発注依頼リスト
         </div>
         <table>
@@ -142,7 +142,7 @@
           <% end %>
         </table>
 
-        <div class="creation-list-title">
+        <div class="list-title">
           発注依頼リスト
         </div>
         <table>

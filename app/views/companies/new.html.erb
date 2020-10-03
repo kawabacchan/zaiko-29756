@@ -11,13 +11,13 @@
       <div class="item-form-and-error">
         <%= form_with model: @company, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
-          <table>
+          <table class="table-company-form">
             <tr>
               <th class="th-company-name">企業名</th>
             </tr>
             <tr>
-              <td><%= f.text_field :name, class:"company-name-form company-form" %></td>
-              <td><%= f.submit "登録", class:"company-submit-form company-form" %></td>
+              <td><%= f.text_field :name, class:"company-name-form form" %></td>
+              <td><%= f.submit "登録", class:"submit-form form" %></td>
             </tr>
           </table>
         <% end %>

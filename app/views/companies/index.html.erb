@@ -42,7 +42,7 @@
       <div class="sort-by-category", id="sort-by-category-display">
         <%if @companies.present? %>
           <% @companies.each do |company|%>
-            <div class="category-name">
+            <div class="list-title">
               <%= company.name %>
             </div>
             <% if @shops.where(company_id: company.id).present? %>

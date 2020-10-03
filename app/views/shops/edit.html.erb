@@ -33,10 +33,10 @@
                   <%= form_with model: [@company, @shop], url: company_shop_path, local: true do |f| %>
                     <%= render "items/error_messages", model: f.object %>
                     <tr>
-                      <td><%= f.text_field :name, class:"shop-code-form shop-form" %></td>
-                      <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form shop-form"}) %></td>
-                      <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form shop-form" %></td>
-                      <td><%= f.submit "確定", class:"shop-submit-form shop-form" %></td>
+                      <td><%= f.text_field :name, class:"shop-code-form form" %></td>
+                      <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form form"}) %></td>
+                      <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form form" %></td>
+                      <td><%= f.submit "確定", class:"submit-form form" %></td>
                     </tr>
                   <% end %>
                 </div>

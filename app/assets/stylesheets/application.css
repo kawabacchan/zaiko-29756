@@ -55,11 +55,11 @@
 .top-display {
   background-color: white;
   border-bottom: 1.5px solid black;
-  height: 180px;
+  height: 220px;
 }
 
 .top-display-title {
-  padding: 10px 10px 10px;
+  padding: 10px 10px 5px;
 }
 
 .top-display-instruction {
@@ -78,15 +78,20 @@
   margin: 10px;
 }
 
-
+/* 表 */
 .first-row {
   position: absolute;
   z-index: 0;
   background-color: white;
 }
 
+th {
+  background-color: lightgray;
+  font-weight: bold;
+}
+
 th, td {
-  height: 30px;
+  height: 25px;
   border: 1px solid black;
   text-align: center;
 }
@@ -103,7 +108,24 @@ th, td {
   background-color: yellow;
 }
 
-/* エラー関連 */
+.list-title {
+  font-size: 20px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+
+/* フォーム */
+.form {
+  border: none;
+  text-align: center;
+}
+
+.submit-form {
+  width: 49px;
+}
+
+/* エラー */
 .error-alert ul {
   display: flex;
 }
@@ -111,4 +133,16 @@ th, td {
 .error-message {
   color: red;
   font-size: 12px;
+}
+
+/* リンクボタン */
+
+a {
+  text-decoration: none;
+  color: black;
+  opacity: 70% ;
+}
+
+a:hover {
+  opacity: 100%;
 }

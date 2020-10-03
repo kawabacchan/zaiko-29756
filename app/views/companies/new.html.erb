@@ -11,7 +11,7 @@
       <div class="item-form-and-error">
         <%= form_with model: @company, local: true do |f| %>
           <%= render "items/error_messages", model: f.object %>
-          <table class="table-company-form">
+          <table class="top-display-form">
             <tr>
               <th class="th-company-name">企業名</th>
             </tr>
@@ -47,8 +47,8 @@
           <% @companies.each do |company|%>
             <tr>
               <td class="td-company-name"><%= company.name %></td>
-              <td><%=link_to "≫", edit_company_path(company.id) %></td>
-              <td><%=link_to "≫", company_path(company.id), method: :delete %></td>
+              <td><%=link_to ">>", edit_company_path(company.id) %></td>
+              <td><%=link_to ">>", company_path(company.id), method: :delete %></td>
             </tr>
           <% end %>
         </table>

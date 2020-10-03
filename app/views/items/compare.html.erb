@@ -8,36 +8,53 @@
       <div class="top-display-title">
         商品 > <%= link_to "一覧表示", root_path %> > 在庫照合結果
       </div>
+      <p>不一致な商品</p>
     </div>
+    
 
     <div class="lower-display">
-      <p>不一致な商品</p>
-      <div>
-        <% if @error_stock_items.present? %>
-          <table>
-            <tr>
-              <th class="th-item-code">商品コード</th>
-              <th class="th-item-name">商品名</th>
-              <th class="th-item-stock">工場在庫</th>
-              <th class="th-item-stock">本社在庫</th>
-            </tr>
-            <% @error_stock_items.each do |item| %>
+      <% if @error_stock_items.present? %>
+        <table>
+          <tr class="first-row">
+            <th class="th-item-code">商品コード</th>
+            <th class="th-item-name">商品名</th>
+            <th class="th-item-compare-stock">工場在庫</th>
+            <th class="th-item-compare-stock">本社在庫</th>
+          </tr>
+          <tr>
+            <th class="th-item-code">商品コード</th>
+            <th class="th-item-name">商品名</th>
+            <th class="th-item-compare-stock">工場在庫</th>
+            <th class="th-item-compare-stock">本社在庫</th>
+          </tr>
+          <% @error_stock_items.each do |item| %>
+            <% if item.stock.nil? %>
+              <tr>
+                <td><%= item.code %></td>
+                <td><%= item.name %></td>
+                <td class="font-red">商品データなし</td>
+                <td><%= @items.find_by(code: item.code).stock %></td>
+              </tr>
+            <% elsif @items.where(code: item.code).blank? %>
               <tr>
                 <td><%= item.code %></td>
                 <td><%= item.name %></td>
                 <td><%= item.stock %></td>
-                <td>
-                  <% if @items.where(code: item.code).present? %>
-                    <%= @items.find_by(code: item.code).stock %>
-                  <% end %>
-                </td>
+                <td class="font-red">商品データなし</td>
+              </tr>
+            <% else %>
+              <tr>
+                <td><%= item.code %></td>
+                <td><%= item.name %></td>
+                <td><%= item.stock %></td>
+                <td><%= @items.find_by(code: item.code).stock %></td>
               </tr>
             <% end %>
-          </table>
-        <% else %>
-          <p>全ての在庫が一致しています。</p>
-        <% end %>
-      </div>
+          <% end %>
+        </table>
+      <% else %>
+        <p>全ての在庫が一致しています。</p>
+      <% end %>
       <%= link_to "戻る", root_path %>
     </div>
   </div>

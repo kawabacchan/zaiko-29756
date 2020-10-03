@@ -63,8 +63,14 @@ class ItemsController < ApplicationController
       @error_stock_items = []
       xlsx = Roo::Excelx.new(params[:file].path)
       xlsx.each_row_streaming(offset: 1, pad_cells: true) do |row|
-        unless Item.all.where(code: row[1].value).present? && (Item.all.where(code: row[1].value).first.stock == row[3].value)
+        unless Item.where(code: row[1].value).present? && (Item.find_by(code: row[1].value).stock == row[3].value)
           item = Item.new(category_id: row[0].value, code: row[1].value, name: row[2].value, stock: row[3].value, monthly_sales: row[4].value)
+          @error_stock_items << item
+        end
+      end
+      Item.all.each do |item|
+        unless xlsx.column(2).include?(item.code)
+          item = Item.new(category_id: item.category_id, code: item.code, name: item.name, stock: "", monthly_sales: "")
           @error_stock_items << item
         end
       end

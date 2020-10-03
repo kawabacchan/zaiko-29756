@@ -35,7 +35,7 @@
             <td class="td-item-name"><%= order.item.name %></td>
             <td class="td-order-sales-numbers"><%= order.sales_numbers %></td>
             <td class="td-order-date"><%= order.created_at.strftime("%Y/%-m/%-d/%H:%M") %></td>
-            <td><%= link_to '≫',company_shop_order_path(id: order.id), method: :delete %></td>
+            <td><%= link_to '>>',company_shop_order_path(id: order.id), method: :delete %></td>
           </tr>
         <% end %>
       </table>

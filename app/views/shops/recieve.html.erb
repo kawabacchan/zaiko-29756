@@ -30,7 +30,7 @@
               <td class="td-shop-name"><%= shop.name %></td>
               <td class="td-shop-prefecture"><%= shop.prefecture.name %></td>
               <td class="td-shop-delivery-days"><%= shop.delivery_days %></td>
-              <td><%= link_to "≫", new_company_shop_order_path(shop_id: shop.id) %></td>
+              <td><%= link_to ">>", new_company_shop_order_path(shop_id: shop.id) %></td>
             </tr>
           <% end%>
         </table>

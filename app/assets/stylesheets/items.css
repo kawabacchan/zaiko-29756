@@ -1,18 +1,3 @@
-.table-item-form {
-  position: absolute;
-  top: 70px;
-}
-
-.item-indicate-btn ul {
-  display: flex;
-}
-
-.item-indicate-btn li {
-  margin-left: 20px;
-  padding: 10px;
-  border: 1px solid black;
-}
-
 .import-file {
   position: absolute;
   top: 130px;
@@ -74,4 +59,8 @@
 
 .item-monthly-sales-form {
   width: 149px;
+}
+
+.th-item-compare-stock {
+  width: 150px;
 }

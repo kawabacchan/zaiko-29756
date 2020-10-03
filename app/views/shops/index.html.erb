@@ -33,8 +33,8 @@
                 <td><%= shop.name %></td>
                 <td><%= shop.prefecture.name %></td>
                 <td><%= shop.delivery_days %></td>
-                <td><%= link_to "≫", edit_company_shop_path(id: shop.id) %></td>
-                <td><%= link_to "≫", company_shop_path(id: shop.id), method: :delete %></td>
+                <td><%= link_to ">>", edit_company_shop_path(id: shop.id) %></td>
+                <td><%= link_to ">>", company_shop_path(id: shop.id), method: :delete %></td>
               </tr>
             <% end%>
           </table>

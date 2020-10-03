@@ -33,7 +33,7 @@
                   <%= form_with model: [@company, @shop], url: company_shop_path, local: true do |f| %>
                     <%= render "items/error_messages", model: f.object %>
                     <tr>
-                      <td><%= f.text_field :name, class:"shop-code-form form" %></td>
+                      <td><%= f.text_field :name, class:"shop-name-form form" %></td>
                       <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form form"}) %></td>
                       <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form form" %></td>
                       <td><%= f.submit "確定", class:"submit-form form" %></td>
@@ -45,7 +45,7 @@
                   <td class="td-shop-name"><%= shop.name %></td>
                   <td class="td-shop-prefecture"><%= shop.prefecture.name %></td>
                   <td class="td-shop-delivery-days"><%= shop.delivery_days %></td>
-                  <td><%= link_to "≫", edit_company_shop_path(id: shop.id) %></td>
+                  <td><%= link_to ">>", edit_company_shop_path(id: shop.id) %></td>
                 </tr>
               <% end%>
             <% end %>

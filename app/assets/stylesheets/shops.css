@@ -27,7 +27,7 @@
 .delivery-table {
   width: 800px;
   height: 1130px;
-  padding: 100px 50px 0;
+  padding: 50px 50px 0;
   border: 1px solid black;
 }
 
@@ -65,9 +65,6 @@
 
 .delivery-shops {
   height: 320px;
-}
-
-.delivery-shops {
   display: flex;
   justify-content: center;
   padding: 15px 5px 0;
@@ -77,8 +74,31 @@
   margin-right: 30px;
   font-size: 12px;
 }
+
+.th-shop-less-than-10 {
+  width: 200px;
+}
+
+.th-shop-less-than-20 {
+  width: 100px;
+}
+
+.th-shop-less-than-30 {
+  width: 80px;
+}
+
+.later-delivery-items-contents {
+  display: flex;
+  justify-content: center;
+}
+
+.later-delivery-table {
+  margin-right: 30px;
+  font-size: 12px;
+}
+
 .later-delivery-items {
-  height: 400px;
+  height: 460px;
   border: 1px solid black;
   padding: 0 20px;
 }
@@ -88,7 +108,26 @@
   font-size: 14px;
 }
 
-.later-delivery-items table {
-  width: 400px;
-  font-size: 12px;
+.th-later-item-category-less-than-10 {
+  width: 200px;
+}
+
+.th-later-item-code-less-than-10 {
+  width: 200px;
+}
+
+.th-later-item-name-less-than-10 {
+  width: 300px;
+}
+
+.th-later-item-category-less-than-20 {
+  width: 100px;
+}
+
+.th-later-item-code-less-than-20 {
+  width: 100px;
+}
+
+.th-later-item-name-less-than-20 {
+  width: 150px;
 }

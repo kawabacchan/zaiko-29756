@@ -17,15 +17,11 @@
             <%= render "items/error_messages", model: f.object %>
             <table>
               <tr class="first-row">
-                <th class="th-shop-name">店舗名</th>
-                <th class="th-shop-prefecture">都道府県</th>
-                <th class="th-shop-delivery-days">配送日数</th>
+                <%= render "th_shop" %>
                 <th class="th-edit">編集</th>
               </tr>
               <tr>
-                <th class="th-shop-name">店舗名</th>
-                <th class="th-shop-prefecture">都道府県</th>
-                <th class="th-shop-delivery-days">配送日数</th>
+                <%= render "th_shop" %>
                 <th class="th-edit">編集</th>
               </tr>
               <% @shops.each do |shop|%>
@@ -38,9 +34,7 @@
                   </tr>
                 <% else %>
                   <tr>
-                    <td class="td-shop-name"><%= shop.name %></td>
-                    <td class="td-shop-prefecture"><%= shop.prefecture.name %></td>
-                    <td class="td-shop-delivery-days"><%= shop.delivery_days %></td>
+                    <%= render partial: "td_shop", locals: {shop: shop} %>
                     <td><%= link_to ">>", edit_company_shop_path(id: shop.id) %></td>
                   </tr>
                 <% end%>

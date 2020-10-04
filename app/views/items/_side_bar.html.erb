@@ -43,7 +43,7 @@
     <div class="content-btn">
       <div>
         <% if Order.all.blank? %>
-          <p>注文履歴なし</p>
+          <div>注文履歴なし</div>
         <% else %>
           <%=link_to '一覧表示', company_shop_orders_path(item_id: Order.first.item_id, shop_id: Order.first.shop_id, company_id: Order.first.shop.company_id) %>
         <% end %>

@@ -38,7 +38,7 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
+      <% if @items.present? %>
         <table>
           <tr class="first-row">
             <%= render "th_item" %>
@@ -58,7 +58,9 @@
             </tr>
           <% end %>
         </table>
-      </div>
+      <% else %>
+        <p>登録商品なし</p>
+      <% end %>
     </div>
   </div>
 </div>

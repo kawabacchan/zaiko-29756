@@ -27,31 +27,35 @@
     <div class="lower-display">
 
       <div class="sort-by-code", id="sort-by-code-display">
-        <table>
-          <tr class="first-row">
-            <%= render "th_item" %>
-          </tr>
-          <tr>
-            <%= render "th_item" %>
-          </tr>
-          <% if @items %>
-            <% @items.each do |item|%>
-              <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                <tr class="red">
-                  <%= render partial: "td_item", locals: {item: item} %>
-                </tr>
-              <% elsif item.stock <= item.monthly_sales * 0.5 %>
-                <tr class="yellow">
-                  <%= render partial: "td_item", locals: {item: item} %>
-                </tr>
-              <% else %>
-                <tr>
-                  <%= render partial: "td_item", locals: {item: item} %>
-                </tr>
-              <%end%>
+        <% if @items.present? %>
+          <table>
+            <tr class="first-row">
+              <%= render "th_item" %>
+            </tr>
+            <tr>
+              <%= render "th_item" %>
+            </tr>
+            <% if @items %>
+              <% @items.each do |item|%>
+                <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+                  <tr class="red">
+                    <%= render partial: "td_item", locals: {item: item} %>
+                  </tr>
+                <% elsif item.stock <= item.monthly_sales * 0.5 %>
+                  <tr class="yellow">
+                    <%= render partial: "td_item", locals: {item: item} %>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <%= render partial: "td_item", locals: {item: item} %>
+                  </tr>
+                <%end%>
+              <% end %>
             <% end %>
-          <% end %>
-        </table>
+          </table>
+        <% else %>
+          <p>登録商品なし</p>
+        <% end%>
       </div>
 
       <div class="sort-by-category", id="sort-by-category-display">
@@ -59,28 +63,32 @@
           <div class="list-title">
             <%= category.name %>
           </div>
-          <table>
-            <tr>
-              <%= render "th_item_without_category" %>
-            </tr>
-            <% @items.each do |item| %>
-              <%if item.category.name == category.name %>
-                <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                  <tr class="red">
-                    <%= render partial: "td_item_without_category", locals: {item: item} %>
-                  </tr>
-                <% elsif item.stock <= (item.monthly_sales * 0.1)+ 3 %>
-                  <tr class="yellow">
-                    <%= render partial: "td_item_without_category", locals: {item: item} %>
-                  </tr>
-                <% else %>
-                  <tr>
-                    <%= render partial: "td_item_without_category", locals: {item: item} %>
-                  </tr>
+          <% if Item.where(category_id: category.id).present? %>
+            <table>
+              <tr>
+                <%= render "th_item_without_category" %>
+              </tr>
+              <% @items.each do |item| %>
+                <%if item.category.name == category.name %>
+                  <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+                    <tr class="red">
+                      <%= render partial: "td_item_without_category", locals: {item: item} %>
+                    </tr>
+                  <% elsif item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+                    <tr class="yellow">
+                      <%= render partial: "td_item_without_category", locals: {item: item} %>
+                    </tr>
+                  <% else %>
+                    <tr>
+                      <%= render partial: "td_item_without_category", locals: {item: item} %>
+                    </tr>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
-          </table>
+            </table>
+          <% else %>
+            <p>登録商品なし</p>
+          <% end %>
         <% end %>
       </div>
 
@@ -89,35 +97,40 @@
         <div class="list-title">
           最優先発注依頼リスト
         </div>
-        <table>
-          <tr>
-            <%= render "th_item" %>
-          </tr>
-          <% @items.each do |item|%>
-            <% if item.stock <= (item.monthly_sales * 0.1)+ 3 %>
+        <% if @few_items.present?%>
+          <table>
+            <tr>
+              <%= render "th_item" %>
+            </tr>
+            <% @few_items.each do |item|%>
               <tr>
                 <%= render partial: "td_item", locals: {item: item} %>
               </tr>
             <% end %>
-          <% end %>
-        </table>
+          </table>
+        <% else %>
+          <p>なし</p>
+        <% end %>
 
         <div class="list-title">
           発注依頼リスト
         </div>
-        <table>
-          <tr>
-            <%= render "th_item" %>
-          </tr>
-          <% @items.each do |item|%>
-            <% if (item.stock <= item.monthly_sales * 0.5) && (item.stock > (item.monthly_sales * 0.1)+ 3) %>
+        <% if @less_items.present?%>
+          <table>
+            <tr>
+              <%= render "th_item" %>
+            </tr>
+            <% @less_items.each do |item|%>
               <tr>
                 <%= render partial: "td_item", locals: {item: item} %>
               </tr>
             <% end %>
-          <% end %>
-        </table>
+          </table>
+        <% else %>
+          <p>なし</p>
+        <% end %>
       </div>
+      
     </div>
   </div>
 </div>

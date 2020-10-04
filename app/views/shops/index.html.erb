@@ -11,25 +11,23 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops.present? %>
-          <table>
-            <tr class="first-row">
-              <%= render "th_shop" %>
-            </tr>
+      <%if @shops.present? %>
+        <table>
+          <tr class="first-row">
+            <%= render "th_shop" %>
+          </tr>
+          <tr>
+            <%= render "th_shop" %>
+          </tr>
+          <% @shops.each do |shop|%>
             <tr>
-              <%= render "th_shop" %>
+              <%= render partial: "td_shop", locals: {shop: shop} %>
             </tr>
-            <% @shops.each do |shop|%>
-              <tr>
-                <%= render partial: "td_shop", locals: {shop: shop} %>
-              </tr>
-            <% end%>
-          </table>
-        <% else %>
-          <p>登録店舗なし</p>
-        <% end %>
-      </div>
+          <% end%>
+        </table>
+      <% else %>
+        <p>登録店舗なし</p>
+      <% end %>
     </div>
 
   </div>

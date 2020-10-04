@@ -1,0 +1,116 @@
+.th-company-name, .td-company-name {
+  width: 200px;
+}
+
+.company-name-form {
+  width: 199px;
+}
+
+/* 店舗の納期関連 */
+.delivery-table {
+  width: 800px;
+  height: 1130px;
+  padding: 50px 50px 0;
+  border: 1px solid black;
+}
+
+.delivery-table-title {
+  font-size: 22px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.delivery-table-date {
+  font-size: 12px;
+  text-align: right;
+}
+
+.delivery-table-company {
+  padding: 50px 0 10px;
+}
+
+.delivery-table-company span {
+  padding: 0 20px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+}
+
+.maker-name {
+  text-align: right;
+  font-size: 14px;
+}
+
+.delivery-table-comment{
+  height: 80px;
+  padding: 50px 0;
+  font-size: 12px;
+}
+
+.delivery-shops {
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  padding: 15px 5px 0;
+}
+
+.delivery-shops table {
+  margin-right: 30px;
+  font-size: 12px;
+}
+
+.th-shop-less-than-10 {
+  width: 200px;
+}
+
+.th-shop-less-than-20 {
+  width: 100px;
+}
+
+.th-shop-less-than-30 {
+  width: 80px;
+}
+
+.later-delivery-items-contents {
+  display: flex;
+  justify-content: center;
+}
+
+.later-delivery-table {
+  margin-right: 30px;
+  font-size: 12px;
+}
+
+.later-delivery-items {
+  height: 460px;
+  border: 1px solid black;
+  padding: 0 20px;
+}
+
+.later-delivery-items-title {
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.th-later-item-category-less-than-10 {
+  width: 200px;
+}
+
+.th-later-item-code-less-than-10 {
+  width: 200px;
+}
+
+.th-later-item-name-less-than-10 {
+  width: 300px;
+}
+
+.th-later-item-category-less-than-20 {
+  width: 100px;
+}
+
+.th-later-item-code-less-than-20 {
+  width: 100px;
+}
+
+.th-later-item-name-less-than-20 {
+  width: 150px;
+}

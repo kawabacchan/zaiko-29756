@@ -1,0 +1,24 @@
+/* 店舗の表関連 */
+.th-shop-name, .td-shop-name  {
+  width: 200px;
+}
+
+.shop-name-form  {
+  width: 199px;
+}
+
+.th-shop-prefecture, .td-shop-prefecture {
+  width: 100px;
+}
+
+.shop-prefecture-form {
+  width: 99px;
+}
+
+.th-shop-delivery-days, .td-shop-delivery-days {
+  width: 100px;
+}
+
+.shop-delivery-days-form {
+  width: 99px;
+}

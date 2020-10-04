@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select, :increase, :delivery, :recieve]
   before_action :set_company, only: [:edit, :update, :destroy]
 
   def index
@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-    @shops = Shop.includes(:company)
   end
 
   def create
@@ -41,9 +40,36 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @items = Item.all.order(code: "ASC")
+    @later_items = []
+    items = Item.all.order(code: "ASC")
+    items.each do |item|
+      if item.stock <= (item.monthly_sales * 0.1)+ 3
+        @later_items << item
+      end
+    end
     @shops = Shop.where(company_id: params[:id])
     @company = Company.find(params[:id])
+  end
+
+  def import
+    if params[:file].present?
+      Company.import(params[:file])
+      redirect_to new_company_path
+    else
+      redirect_to new_company_path
+    end
+  end
+
+  def select
+  end
+
+  def increase
+  end
+
+  def delivery
+  end
+
+  def recieve
   end
 
 

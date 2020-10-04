@@ -3,12 +3,12 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         企業 > 一覧表示
       </div>
-      <div class="item-indicate-btn">
+      <div class="indicate-btn">
         <ul>
           <li class="lightblue", id="sort-by-code">企業一覧</li>
           <li id="sort-by-category">企業別店舗表示</li>
@@ -16,37 +16,55 @@
       </div>
     </div>
 
-    <div class="item-display-contents">
-
+    <div class="lower-display">
       <div class="sort-by-code", id="sort-by-code-display">
-        <%if @companies %>
-          <% @companies.each do |company|%>
-            <div class="company-display-content">
-              <%= company.name%>
-              <%= link_to "店舗表示", company_shops_path(company.id) %>
-              <%= link_to "納期表", company_path(company.id) %>
-            </div>
-          <% end %>
+        <%if @companies.present? %>
+          <table>
+            <tr class="first-row">
+              <th class="th-company-name">企業名</th>
+            </tr>
+            <tr>
+              <th class="th-company-name">企業名</th>
+            </tr>
+            <% @companies.each do |company|%>
+              <div class="company-display-content">
+                <tr>
+                  <td><%= company.name %></td>
+                </tr>
+              </div>
+            <% end %>
+          </table>
+        <% else %>
+          <p>登録企業なし</p>
         <% end %>
       </div>
 
       <div class="sort-by-category", id="sort-by-category-display">
-        <%if @companies %>
+        <%if @companies.present? %>
           <% @companies.each do |company|%>
-            <div class="company-display-content">
+            <div class="list-title">
               <%= company.name %>
-              <div class="shop-display-contents">
+            </div>
+            <% if @shops.where(company_id: company.id).present? %>
+              <table>
+                <tr>
+                  <th class="th-shop-name">店舗名</th>
+                  <th class="th-shop-prefecture">都道府県</th>
+                  <th class="th-shop-delivery-days">配送日数</th>
+                </tr>
                 <% @shops.each do |shop|%>
                   <% if shop.company_id == company.id %>
-                    <div class="shop-display-content">
-                      <%= shop.name %>
-                      <%= shop.prefecture.name %>
-                      <%= shop.delivery_days %>
-                    </div>
+                    <tr>
+                      <td><%= shop.name %></td>
+                      <td><%= shop.prefecture.name %></td>
+                      <td><%= shop.delivery_days %></td>
+                    </tr>
                   <% end %>
                 <% end %>
-              </div>
-            </div>
+              </table>
+            <% else %>
+              <p>登録店舗なし</p>
+            <% end %>
           <% end %>
         <% end %>
       </div>

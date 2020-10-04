@@ -5,7 +5,14 @@ Rails.application.routes.draw do
     collection {post :compare}
   end
   resources :companies do
+    collection {post :import}
+    collection {get :select}
+    collection {get :increase}
+    collection {get :delivery}
+    collection {get :recieve}
     resources :shops, only: [:index, :new, :create, :edit, :update, :destroy] do
+      collection {post :import}
+      collection {get :recieve}
       resources :orders, only: [:index, :new, :create, :destroy]
     end
   end

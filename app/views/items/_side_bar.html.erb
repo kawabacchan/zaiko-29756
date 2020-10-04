@@ -1,46 +1,72 @@
 <div class="side-header">
   <div class="app-name">
-    在庫管理Z
+    在庫管理
   </div>
 </div>
 
 <div class="side-contents">
-  <div class="side-item content">
-    <div class="side-item-header">
+
+  <div class="side-ontent">
+    <div class="content-title">
       商品
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li><%=link_to '一覧表示', items_path %></li>
-        <li><%=link_to '登録', new_item_path %></li>
+        <li><%=link_to '登録・編集・削除', new_item_path %></li>
       </ul>
     </div>
   </div>
 
-  <div class="side-item content">
-    <div class="side-item-header">
-      企業・店舗
+  <div class="side-content">
+    <div class="content-title">
+      企業
     </div>
-    <div class="side-item content-btn">
+    <div class="content-btn">
       <ul>
         <li><%=link_to '一覧表示', companies_path %></li>
-        <li><%=link_to '登録', new_company_path %></li>
+        <li><%=link_to '登録・編集・削除', new_company_path %></li>
       </ul>
     </div>
   </div>
 
-  <div class="side-order">
-    <div class="side-item-header">
-      注文
+  <div class="side-content">
+    <div class="content-title">
+      店舗
     </div>
-    <div class="side-item content-btn">
-      <% if Order.find(1).blank? %>
-        <p>注文履歴なし</p>>
-      <% else %>
-        <ul>
-          <li><%=link_to '一覧表示', company_shop_orders_path(item_id: Order.find(1).item_id, shop_id: Order.find(1).shop_id, company_id: Order.find(1).shop.company_id) %></li>
-        </ul>
-      <% end %>
+    <div class="content-btn">
+      <ul>
+        <li><%=link_to '一覧表示', select_companies_path %></li>
+        <li><%=link_to '登録・編集・削除', increase_companies_path %></li>
+      </ul>
     </div>
   </div>
+
+  <div class="side-content">
+    <div class="content-title">
+      注文
+    </div>
+    <div class="content-btn">
+      <ul>
+        <li>
+          <% if Order.all.blank? %>
+            <p>注文履歴なし</p>
+          <% else %>
+            <%=link_to '一覧表示', company_shop_orders_path(item_id: Order.first.item_id, shop_id: Order.first.shop_id, company_id: Order.first.shop.company_id) %>
+          <% end %>
+        </li>
+        <li><%=link_to '登録・編集・削除', recieve_companies_path %></li>
+      </ul>
+  </div>
+  </div>
+
+  <div class="side-content">
+    <div class="content-title">
+      納期表
+    </div>
+    <div class="content-btn">
+      <%=link_to '表示', delivery_companies_path %>
+    </div>
+  </div>
+  
 </div>

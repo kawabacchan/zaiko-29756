@@ -3,30 +3,37 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
-        <%=@company.name%> > 店舗一覧表示
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
+        店舗 > 一覧表示 > <%= link_to "店舗選択", select_companies_path %> > <%=@company.name%>
       </div>
     </div>
 
-    <div class="item-display-contents">
+    <div class="lower-display">
       <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops.empty? %>
-          <p>登録店舗なし</p>
-        <% else %>
-          <div class="shop-display-contents">
+        <%if @shops.present? %>
+          <table>
+            <tr class="first-row">
+              <th class="th-shop-name">店舗名</th>
+              <th class="th-shop-prefecture">都道府県</th>
+              <th class="th-shop-delivery-days">配送日数</th>
+            </tr>
+            <tr>
+              <th class="th-shop-name">店舗名</th>
+              <th class="th-shop-prefecture">都道府県</th>
+              <th class="th-shop-delivery-days">配送日数</th>
+            </tr>
             <% @shops.each do |shop|%>
-              <div class="shop-display-content">
-                <%= shop.name %>
-                <%= shop.prefecture.name %>
-                <%= shop.delivery_days %>
-                <%= link_to "編集", edit_company_shop_path(id: shop.id) %>
-                <%= link_to "削除", company_shop_path(id: shop.id), method: :delete %>
-                <%= link_to "注文受付", new_company_shop_order_path(shop_id: shop.id) %>
-              </div>
-            <% end %>
-          </div>
+              <tr>
+                <td><%= shop.name %></td>
+                <td><%= shop.prefecture.name %></td>
+                <td><%= shop.delivery_days %></td>
+              </tr>
+            <% end%>
+          </table>
+        <% else %>
+          <p>登録店舗なし</p>
         <% end %>
       </div>
     </div>

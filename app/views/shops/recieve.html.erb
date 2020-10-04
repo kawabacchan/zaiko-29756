@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class= "side-bar">
+    <%= render "items/side_bar"%>
+  </div>
+
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
+        注文受付 > <%= link_to "企業選択", recieve_companies_path %> > <%=@company.name%> > 店舗選択
+      </div>
+    </div>
+
+    <div class="lower-display">
+      <%if @shops.present? %>
+        <table>
+          <tr class="first-row">
+            <th class="th-shop-name">店舗名</th>
+            <th class="th-shop-prefecture">都道府県</th>
+            <th class="th-shop-delivery-days">配送日数</th>
+            <th class="th-select">選択</th>
+          </tr>
+          <tr>
+            <th class="th-shop-name">店舗名</th>
+            <th class="th-shop-prefecture">都道府県</th>
+            <th class="th-shop-delivery-days">配送日数</th>
+            <th class="th-select">選択</th>
+          </tr>
+          <% @shops.each do |shop|%>
+            <tr>
+              <td class="td-shop-name"><%= shop.name %></td>
+              <td class="td-shop-prefecture"><%= shop.prefecture.name %></td>
+              <td class="td-shop-delivery-days"><%= shop.delivery_days %></td>
+              <td><%= link_to ">>", new_company_shop_order_path(shop_id: shop.id) %></td>
+            </tr>
+          <% end%>
+        </table>
+      <% else %>
+        <p>登録店舗なし</p>
+      <% end %>
+    </div>
+
+  </div>
+</div>

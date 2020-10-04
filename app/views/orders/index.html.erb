@@ -3,28 +3,42 @@
     <%= render "items/side_bar"%>
   </div>
 
-  <div class="item-display">
-    <div class="item-header">
-      <div class="item-header-title">
+  <div class="main-display">
+    <div class="top-display">
+      <div class="top-display-title">
         注文 > 一覧表示
       </div>
     </div>
 
-    <div class="order-display-contents">
-      <div class="order-display-content">
+    <div class="lower-display">
+      <table>
+        <tr class="first-row">
+          <th class="th-company-name">企業名</th>
+          <th class="th-shop-name">店舗名</th>
+          <th class="th-item-name">商品名</th>
+          <th class="td-order-sales-numbers">数量</th>
+          <th class="th-order-date">登録日時</th>
+          <th class="th-destory">削除</th>
+        </tr>
+        <tr>
+          <th class="th-company-name">企業名</th>
+          <th class="th-shop-name">店舗名</th>
+          <th class="th-item-name">商品名</th>
+          <th class="td-order-sales-numbers">数量</th>
+          <th class="th-order-date">登録日時</th>
+          <th class="th-destory">削除</th>
+        </tr>
         <% @orders.each do |order| %>
-          <ul>
-            <li><%= order.shop.company.name %></li>
-            <li><%= order.shop.name %></li>
-            <li><%= order.item.name %></li>
-            <li><%= order.sales_numbers %></li>
-            <li><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></li>
-            <% if order.created_at >= Date.today %>
-              <li><%= link_to '削除',company_shop_order_path(id: order.id), method: :delete %></li>
-            <% end%>
-          </ul>
+          <tr>
+            <td class="td-company-name"><%= order.shop.company.name %></td>
+            <td class="td-shop-name"><%= order.shop.name %></td>
+            <td class="td-item-name"><%= order.item.name %></td>
+            <td class="td-order-sales-numbers"><%= order.sales_numbers %></td>
+            <td class="td-order-date"><%= order.created_at.strftime("%Y/%-m/%-d/%H:%M") %></td>
+            <td><%= link_to '>>',company_shop_order_path(id: order.id), method: :delete %></td>
+          </tr>
         <% end %>
-      </div>
+      </table>
     </div>
   </div>
 </div>

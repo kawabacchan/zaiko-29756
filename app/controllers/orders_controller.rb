@@ -14,13 +14,9 @@ class OrdersController < ApplicationController
     @items = Item.all.order(code: "ASC")
     @shop = Shop.find(params[:shop_id])
     @order = Order.new(order_params)
-    item = Item.find(@order.item_id)
-    if item.update(stock: (item.stock - @order.sales_numbers))
-      if @order.save
-        redirect_to new_company_shop_order_path
-      else
-        render :new
-      end
+    @item = Item.find(@order.item_id)
+    if @item.update(stock: (@item.stock - @order.sales_numbers)) && @order.save
+      redirect_to new_company_shop_order_path
     else
       render :new
     end
@@ -41,7 +37,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:sales_numbers).merge(shop_id: params[:shop_id], item_id: params[:item_id])
+    params.require(:order).permit(:sales_numbers, :item_id).merge(shop_id: params[:shop_id])
   end
 
 end

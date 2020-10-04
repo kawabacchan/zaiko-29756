@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 
-  before_action :all_shop, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_shop, only: [:edit, :update, :destroy]
+  before_action :all_shop, only: [:new, :create, :destroy]
+  before_action :set_shop, only: [:edit, :update]
 
   def index
     @shops = Shop.where(company_id: params[:company_id]).order(company_id: "ASC")
@@ -27,10 +27,12 @@ class ShopsController < ApplicationController
 
   def edit
     @company = Company.find(params[:company_id])
+    @shops = Shop.where(company_id: params[:company_id])
   end
 
   def update
     @company = Company.find(params[:company_id])
+    @shops = Shop.where(company_id: params[:company_id])
     if @shop.update(shop_params)
       redirect_to new_company_shop_path
     else
@@ -39,6 +41,7 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    @shop = Shop.new
     @company = Company.find(params[:company_id])
     if @shop.destroy
       redirect_to new_company_shop_path

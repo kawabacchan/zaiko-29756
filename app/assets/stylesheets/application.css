@@ -15,19 +15,23 @@
  */
 
  /* 全体 */
- * {
+
+* {
    box-sizing: border-box;
  }
 
  /* 全体画面の左右の並び */
  .wrapper {
+  width: 1000px;
+  height: 900px;
+  border: double;
+  margin: 20px auto;
   display: flex;
 }
 
 /* 全体画面の左側(項目選択画面) */
 .side-bar {
   width: 200px;
-  height: 100vh;
   border-right: 2px solid black;
   padding: 20px;
 }
@@ -54,16 +58,14 @@
 /* 全体画面の右側(メイン表示画面) */
 
 .main-display {
-  background-color:white;
-  width: calc( 100% - 150px);
-  height: 100vh;
+  width: calc(100% - 200px);
   position: relative;
 }
 
 /* メイン表示画面の上部(タイトルなどの部分) */
 .top-display {
-  border-bottom: 1.5px solid black;
   height: 220px;
+  border-bottom: 2px solid darkgray;
 }
 
 .top-display-form {
@@ -99,7 +101,6 @@
 
 /* メイン表示画面の下部(主に表を表示する部分) */
 .lower-display {
-  height: calc(100vh - 250px);
   overflow: scroll;
   margin: 10px;
 }

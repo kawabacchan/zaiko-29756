@@ -22,7 +22,7 @@
 
  /* 全体画面の左右の並び */
  .wrapper {
-  width: 1020px;
+  width: 1150px;
   height: 900px;
   border: double;
   margin: 20px auto;
@@ -100,8 +100,10 @@
 
 /* メイン表示画面の下部(主に表を表示する部分) */
 .lower-display {
+  height: calc(100% - 240px);
   overflow: scroll;
-  margin: 10px;
+  margin-top: 10px;
+  padding: 0 10px 20px;;
 }
 
 /* 表 */

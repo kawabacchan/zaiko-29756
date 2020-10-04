@@ -24,6 +24,11 @@ RSpec.describe Order, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Sales numbers must be greater than 0")
       end
+      it "sales_numbersが10000以上の時、登録できない" do
+        @order.sales_numbers = 10000
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Sales numbers must be less than 10000")
+      end
     end
   end
 

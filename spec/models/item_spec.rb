@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
   
   describe "商品登録" do
     context "上手くいく時" do
-      it "カテゴリー、商品コード、商品名、在庫数、想定月間販売数、商品作成日数が全てあれば登録できる" do
+      it "カテゴリー、商品コード、商品名、在庫数、想定月間販売数が全てあれば登録できる" do
         expect(@item).to be_valid
       end
     end
@@ -29,8 +29,8 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Code can't be blank")
       end
-      it "商品コードが英字1字と数字3桁の並びでなかったら登録できない" do
-        @item.code = "A1234"
+      it "商品コードが9字以上なら登録できない" do
+        @item.code = "A12345678"
         @item.valid?
         expect(@item.errors.full_messages).to include("Code is invalid")
       end
@@ -49,6 +49,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Stock must be greater than or equal to 0")
       end
+      it "在庫が10000以上なら登録できない" do
+        @item.stock = 10000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Stock must be less than 10000")
+      end
       it "想定月間販売数が空なら登録できない" do
         @item.monthly_sales = nil
         @item.valid?
@@ -59,15 +64,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Monthly sales must be greater than or equal to 0")
       end
-      it "商品作成日数が空なら登録できない" do
-        @item.creation_days = nil
+      it "想定月間販売数が10000以上なら登録できない" do
+        @item.monthly_sales = 10000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Creation days can't be blank")
-      end
-      it "商品作成日数がマイナスなら登録できない" do
-        @item.creation_days = -1
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Creation days must be greater than or equal to 0")
+        expect(@item.errors.full_messages).to include("Monthly sales must be less than 10000")
       end
     end
     

@@ -19,6 +19,11 @@ RSpec.describe Shop, type: :model do
         @shop.valid?
         expect(@shop.errors.full_messages).to include("Name can't be blank")
       end
+      it "nameが11字以上だと登録できない" do
+        @shop.name = "ABCDEFGHIJK"
+        @shop.valid?
+        expect(@shop.errors.full_messages).to include("Name is too long (maximum is 10 characters)")
+      end
       it "prefecture_idが空だと登録できない" do
         @shop.prefecture_id = nil
         @shop.valid?
@@ -37,7 +42,12 @@ RSpec.describe Shop, type: :model do
       it "delivery_daysが0だと登録できない" do
         @shop.delivery_days = 0
         @shop.valid?
-        expect(@shop.errors.full_messages).to include("Delivery days must be other than 0")
+        expect(@shop.errors.full_messages).to include("Delivery days must be greater than 0")
+      end
+      it "delivery_daysが100以上だと登録できない" do
+        @shop.delivery_days = 100
+        @shop.valid?
+        expect(@shop.errors.full_messages).to include("Delivery days must be less than 100")
       end
     end
   end

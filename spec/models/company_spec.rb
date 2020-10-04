@@ -19,6 +19,11 @@ RSpec.describe Company, type: :model do
         @company.valid?
         expect(@company.errors.full_messages).to include("Name can't be blank")
       end
+      it "nameが11字以上の時" do
+        @company.name = "ABCDEFGHIJK"
+        @company.valid?
+        expect(@company.errors.full_messages).to include("Name is too long (maximum is 10 characters)")
+      end
     end
   end
 end

@@ -25,7 +25,6 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     item = Item.find(@order.item_id)
     if @order.destroy
-      item.update(stock: (item.stock + @order.sales_numbers))
       redirect_to company_shop_orders_path
     else
       render :index

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select, :increase, :delivery, :recieve]
-  before_action :set_company, only: [:edit, :update, :destroy]
+  before_action :all_company, only: [:index, :new, :create, :edit, :update, :destroy, :select, :increase, :delivery, :receive]
+  before_action :set_company, only: [:edit, :update, :destroy, :show]
 
   def index
     @shops = Shop.includes(:company)
@@ -48,7 +48,6 @@ class CompaniesController < ApplicationController
       end
     end
     @shops = Shop.where(company_id: params[:id])
-    @company = Company.find(params[:id])
   end
 
   def import
@@ -69,7 +68,7 @@ class CompaniesController < ApplicationController
   def delivery
   end
 
-  def recieve
+  def receive
   end
 
 

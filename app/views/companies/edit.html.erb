@@ -34,7 +34,7 @@
               <% else %>
                 <tr>
                   <td class="td-company-name"><%= company.name %></td>
-                  <td><%= link_to "編集", edit_company_path %></td>
+                  <td><%= link_to "編集", edit_company_path(company.id) %></td>
                 </tr>
               <% end %>
             <% end %>

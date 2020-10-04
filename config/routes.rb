@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     collection {get :select}
     collection {get :increase}
     collection {get :delivery}
-    collection {get :recieve}
+    collection {get :receive}
     resources :shops, only: [:index, :new, :create, :edit, :update, :destroy] do
       collection {post :import}
-      collection {get :recieve}
+      collection {get :receive}
       resources :orders, only: [:index, :new, :create, :destroy]
     end
   end

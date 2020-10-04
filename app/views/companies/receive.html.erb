@@ -18,7 +18,7 @@
       <%if @companies.present? %>
         <% @companies.each do |company|%>
           <div class="company-display-content">
-            <%= link_to company.name, recieve_company_shops_path(company.id) %>
+            <%= link_to company.name, receive_company_shops_path(company.id) %>
           </div>
         <% end %>
       <% else %>

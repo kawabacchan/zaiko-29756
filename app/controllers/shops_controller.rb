@@ -2,22 +2,18 @@ class ShopsController < ApplicationController
 
   before_action :all_shop, only: [:new, :create, :destroy]
   before_action :set_shop, only: [:edit, :update]
+  before_action :set_company, only: [:index, :new, :create, :edit, :update, :destroy, :import, :receive]
 
   def index
     @shops = Shop.where(company_id: params[:company_id]).order(company_id: "ASC")
-    @company = Company.find(params[:company_id])
   end
-
-
 
   def new
     @shop = Shop.new
-    @company = Company.find(params[:company_id])
   end
 
   def create
     @shop = Shop.new(shop_params)
-    @company = Company.find(params[:company_id])
     if @shop.save
       redirect_to new_company_shop_path
     else
@@ -26,12 +22,10 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:company_id])
     @shops = Shop.where(company_id: params[:company_id])
   end
 
   def update
-    @company = Company.find(params[:company_id])
     @shops = Shop.where(company_id: params[:company_id])
     if @shop.update(shop_params)
       redirect_to new_company_shop_path
@@ -42,7 +36,6 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.new
-    @company = Company.find(params[:company_id])
     if @shop.destroy
       redirect_to new_company_shop_path
     else
@@ -51,7 +44,6 @@ class ShopsController < ApplicationController
   end
 
   def import
-    @company = Company.find(params[:company_id])
     if params[:file].present?
       xlsx = Roo::Excelx.new(params[:file].path)
       xlsx.each_row_streaming(offset: 1, pad_cells: true) do |row|
@@ -70,8 +62,7 @@ class ShopsController < ApplicationController
     end
   end
 
-  def recieve
-    @company = Company.find(params[:company_id])
+  def receive
     @shops = Shop.where(company_id: params[:company_id])
   end
 
@@ -87,6 +78,10 @@ class ShopsController < ApplicationController
 
   def set_shop
     @shop = Shop.find(params[:id])
+  end
+
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 
 end

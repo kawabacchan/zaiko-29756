@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :all_item, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :all_item, only: [:index, :new, :create, :edit, :update, :destroy, :compare]
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
@@ -67,7 +67,6 @@ class ItemsController < ApplicationController
   end
     
   def compare
-    @items = Item.all
     if params[:file].present?
       @error_stock_items = []
       xlsx = Roo::Excelx.new(params[:file].path)

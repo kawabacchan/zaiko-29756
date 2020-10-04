@@ -31,7 +31,7 @@
         <tr>
           <th class="th-shop-less-than-20">店舗</th>
           <th class="th-shop-less-than-20">通常納期</th>
-          <th>納期遅れ</th>
+          <th class="th-shop-less-than-20">納期遅れ</th>
         </tr>
         <% @shops[0..9].each do |shop| %>
           <tr>
@@ -45,7 +45,7 @@
         <tr>
           <th class="th-shop-less-than-20">店舗</th>
           <th class="th-shop-less-than-20">通常納期</th>
-          <th class="th-shop-less-than-10">納期遅れ</th>
+          <th class="th-shop-less-than-20">納期遅れ</th>
         </tr>
         <% @shops[10..19].each do |shop| %>
           <tr>
@@ -151,6 +151,8 @@
               </tr>
             <% end %>
           </table>
+        <% else %>
+          <p>別途、納期遅れ商品のリストを添付致します。</p>
         <% end%>
       </div>
     <% else %>

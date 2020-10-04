@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :company do
 
-    name {Faker::Name.name}
+    name {Faker::Name.first_name}
     
   end
 end

@@ -82,12 +82,14 @@
 
 .indicate-btn ul {
   display: flex;
+  margin-top: 30px;
 }
 
 .indicate-btn li {
-  margin-left: 20px;
-  padding: 10px;
-  border: 1px solid black;
+  margin-left: 10px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
   cursor: pointer;
 }
 

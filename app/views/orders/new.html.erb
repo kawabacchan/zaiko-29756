@@ -8,7 +8,9 @@
       <div class="top-display-title">
         注文受付 > <%= link_to "企業選択", recieve_companies_path %> > <%= @shop.company.name %> > <%= link_to "店舗選択", recieve_company_shops_path(@shop.company.id) %> > <%= @shop.name %>
       </div>
-      <p>1つの入力毎に確定を行ってください。</p>
+      <div class="top-display-instruction">
+        <p>※1つの入力毎に確定</p>
+      </div>
     </div>
     
 

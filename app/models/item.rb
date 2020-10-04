@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :code, presence: true, uniqueness: { case_sensitive: true }, format: { with: /\A[a-zA-Z0-9]{1,8}+\z/}
   validates :name, presence: true, uniqueness: { case_sensitive: true }, length: { maximum: 10}
   
-  with_options presence: true, numericality: {greater_than_or_equal_to: 0} do
+  with_options presence: true, numericality: {greater_than_or_equal_to: 0, less_than: 10000} do
     validates :stock, :monthly_sales
   end
 

@@ -29,7 +29,7 @@
                 <%= form_with model:@company, local: true do |f| %>
                   <%= render "items/error_messages", model: f.object %>
                   <tr>
-                    <td><%= f.text_field :name, class:"company-name-form form" %></td>
+                    <td><%= f.text_field :name, class:"company-name-form form", maxlength:10 %></td>
                     <td><%= f.submit "確定", class:"submit-form form" %></td>
                   </tr>
                 <% end %>

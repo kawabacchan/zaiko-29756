@@ -2,7 +2,7 @@ class Company < ApplicationRecord
 
   has_many :shops, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 10}
 
   def self.import(file)
     xlsx = Roo::Excelx.new(file.path)

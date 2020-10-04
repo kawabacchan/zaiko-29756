@@ -31,9 +31,9 @@
               <% @shops.each do |shop|%>
                 <% if shop.id == @shop.id %>
                   <tr>
-                    <td><%= f.text_field :name, class:"shop-name-form form" %></td>
+                    <td><%= f.text_field :name, class:"shop-name-form form", maxlength: 10 %></td>
                     <td><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"shop-prefecture-form form"}) %></td>
-                    <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form form" %></td>
+                    <td><%= f.number_field :delivery_days, min:1, class:"shop-delivery-days-form form", max: 99 %></td>
                     <td><%= f.submit "確定", class:"submit-form form" %></td>
                   </tr>
                 <% else %>

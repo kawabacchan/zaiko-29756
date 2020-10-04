@@ -15,15 +15,15 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @companies %>
-          <% @companies.each do |company|%>
-            <div class="company-display-content">
-              <%= link_to company.name, new_company_shop_path(company.id) %>
-            </div>
-          <% end %>
+      <%if @companies.present? %>
+        <% @companies.each do |company|%>
+          <div class="company-display-content">
+            <%= link_to company.name, new_company_shop_path(company.id) %>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <p>登録企業なし</p>
+      <% end %>
     </div>
   </div>
 

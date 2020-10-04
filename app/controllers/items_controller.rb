@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
 
   def index
     @orders = Order.all.order(created_at: "DESC")
+    @few_items = []
+    @less_items = []
+    @items.each do |item|
+      if item.stock <= (item.monthly_sales * 0.1)+ 3
+        @few_items << item
+      elsif item.stock <= item.monthly_sales * 0.5
+        @less_items << item
+      end
+    end
   end
 
   def new

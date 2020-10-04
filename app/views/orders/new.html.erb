@@ -20,20 +20,12 @@
         <% if @items.present? %>
           <table>
             <tr class="first-row">
-              <th class="th-item-category">カテゴリー</th>
-              <th class="th-item-code">商品コード</th>
-              <th class="th-item-name">商品名</th>
-              <th class="th-item-stock">在庫数</th>
-              <th class="th-item-monthly-sales">想定月間販売数</th>
+              <%= render "items/th_item" %>
               <th class="th-order-sales-numbers">注文数</th>
               <th class="th-confirm">確定</th>
             </tr>
             <tr>
-              <th class="th-item-category">カテゴリー</th>
-              <th class="th-item-code">商品コード</th>
-              <th class="th-item-name">商品名</th>
-              <th class="th-item-stock">在庫数</th>
-              <th class="th-item-monthly-sales">想定月間販売数</th>
+              <%= render "items/th_item" %>
               <th class="th-order-sales-numbers">注文数</th>
               <th class="th-confirm">確定</th>
             </tr>
@@ -45,11 +37,7 @@
                 <%= f.number_field :item_id, value:item.id, type:"hidden" %>
                 <table>
                   <tr class="red">
-                    <td class="td-item-category"><%= item.category.name %></td>
-                    <td class="td-item-code"><%= item.code%></td>
-                    <td class="td-item-name"><%= item.name%></td>
-                    <td class="td-item-stock"><%= item.stock%></td>
-                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <%= render partial: "items/td_item", locals: {item: item} %>
                     <td><%= f.number_field :sales_numbers, min:1, class:"order-sales-numbers-form form" %></td>
                     <td><%= f.submit ">>", class:"submit-form form" %></td>
                   </tr>
@@ -61,11 +49,7 @@
                 <%= f.number_field :item_id, value:item.id, type:"hidden" %>
                 <table>
                   <tr class="yellow">
-                    <td class="td-item-category"><%= item.category.name %></td>
-                    <td class="td-item-code"><%= item.code%></td>
-                    <td class="td-item-name"><%= item.name%></td>
-                    <td class="td-item-stock"><%= item.stock%></td>
-                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <%= render partial: "items/td_item", locals: {item: item} %>
                     <td><%= f.number_field :sales_numbers, min:1, class:"order-sales-numbers-form form" %></td>
                     <td><%= f.submit ">>", class:"submit-form form" %></td>
                   </tr>
@@ -77,11 +61,7 @@
                 <%= f.number_field :item_id, value:item.id, type:"hidden" %>
                 <table>
                   <tr>
-                    <td class="td-item-category"><%= item.category.name %></td>
-                    <td class="td-item-code"><%= item.code%></td>
-                    <td class="td-item-name"><%= item.name%></td>
-                    <td class="td-item-stock"><%= item.stock%></td>
-                    <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+                    <%= render partial: "items/td_item", locals: {item: item} %>
                     <td><%= f.number_field :sales_numbers, min:1, max:9999, class:"order-sales-numbers-form form" %></td>
                     <td><%= f.submit ">>", class:"submit-form form" %></td>
                   </tr>

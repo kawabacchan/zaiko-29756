@@ -15,11 +15,7 @@
           <%= render "error_messages", model: f.object %>
           <table class="top-display-form">
             <tr>
-              <th class="th-item-category">カテゴリー</th>
-              <th class="th-item-code">商品コード</th>
-              <th class="th-item-name">商品名</th>
-              <th class="th-item-stock">在庫数</th>
-              <th class="th-item-monthly-sales">想定月間販売数</th>
+              <%= render "th_item" %>
             </tr>
             <tr>
               <td><%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"item-category-form form"}) %></td>
@@ -42,39 +38,29 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
+      <% if @items.present? %>
         <table>
           <tr class="first-row">
-            <th class="th-item-category">カテゴリー</th>
-            <th class="th-item-code">商品コード</th>
-            <th class="th-item-name">商品名</th>
-            <th class="th-item-stock">在庫数</th>
-            <th class="th-item-monthly-sales">想定月間販売数</th>
+            <%= render "th_item" %>
             <th class="th-edit">編集</th>
             <th class="th-destory">削除</th>
           </tr>
           <tr>
-            <th class="th-item-category">カテゴリー</th>
-            <th class="th-item-code">商品コード</th>
-            <th class="th-item-name">商品名</th>
-            <th class="th-item-stock">在庫数</th>
-            <th class="th-item-monthly-sales">想定月間販売数</th>
+            <%= render "th_item" %>
             <th class="th-edit">編集</th>
             <th class="th-destory">削除</th>
           </tr>
           <% @items.each do |item|%>
             <tr>
-              <td class="td-item-category"><%= item.category.name %></td>
-              <td class="td-item-code"><%= item.code%></td>
-              <td class="td-item-name"><%= item.name%></td>
-              <td class="td-item-stock"><%= item.stock%></td>
-              <td class="td-item-monthly-sales"><%= item.monthly_sales%></td>
+              <%= render partial: "td_item", locals: {item: item} %>
               <td><%=link_to ">>", edit_item_path(item.id) %></td>
               <td><%=link_to ">>", item_path(item.id), method: :delete  %></td>
             </tr>
           <% end %>
         </table>
-      </div>
+      <% else %>
+        <p>登録商品なし</p>
+      <% end %>
     </div>
   </div>
 </div>

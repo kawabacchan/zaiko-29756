@@ -11,31 +11,23 @@
     </div>
 
     <div class="lower-display">
-      <div class="sort-by-code", id="sort-by-code-display">
-        <%if @shops.present? %>
-          <table>
-            <tr class="first-row">
-              <th class="th-shop-name">店舗名</th>
-              <th class="th-shop-prefecture">都道府県</th>
-              <th class="th-shop-delivery-days">配送日数</th>
-            </tr>
+      <%if @shops.present? %>
+        <table>
+          <tr class="first-row">
+            <%= render "th_shop" %>
+          </tr>
+          <tr>
+            <%= render "th_shop" %>
+          </tr>
+          <% @shops.each do |shop|%>
             <tr>
-              <th class="th-shop-name">店舗名</th>
-              <th class="th-shop-prefecture">都道府県</th>
-              <th class="th-shop-delivery-days">配送日数</th>
+              <%= render partial: "td_shop", locals: {shop: shop} %>
             </tr>
-            <% @shops.each do |shop|%>
-              <tr>
-                <td><%= shop.name %></td>
-                <td><%= shop.prefecture.name %></td>
-                <td><%= shop.delivery_days %></td>
-              </tr>
-            <% end%>
-          </table>
-        <% else %>
-          <p>登録店舗なし</p>
-        <% end %>
-      </div>
+          <% end%>
+        </table>
+      <% else %>
+        <p>登録店舗なし</p>
+      <% end %>
     </div>
 
   </div>

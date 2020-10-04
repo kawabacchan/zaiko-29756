@@ -48,16 +48,12 @@
             <% if @shops.where(company_id: company.id).present? %>
               <table>
                 <tr>
-                  <th class="th-shop-name">店舗名</th>
-                  <th class="th-shop-prefecture">都道府県</th>
-                  <th class="th-shop-delivery-days">配送日数</th>
+                  <%= render "shops/th_shop" %>
                 </tr>
                 <% @shops.each do |shop|%>
                   <% if shop.company_id == company.id %>
                     <tr>
-                      <td><%= shop.name %></td>
-                      <td><%= shop.prefecture.name %></td>
-                      <td><%= shop.delivery_days %></td>
+                      <%= render partial: "shops/td_shop", locals: {shop: shop} %>
                     </tr>
                   <% end %>
                 <% end %>

@@ -17,19 +17,11 @@
         <%= render "error_messages", model: f.object %>
         <table>
           <tr class="first-row">
-            <th class="th-item-category">カテゴリー</th>
-            <th class="th-item-code">商品コード</th>
-            <th class="th-item-name">商品名</th>
-            <th class="th-item-stock">在庫数</th>
-            <th class="th-item-monthly-sales">想定月間販売数</th>
+            <%= render "th_item" %>
             <th class="th-edit">編集</th>
           </tr>
           <tr>
-            <th class="th-item-category">カテゴリー</th>
-            <th class="th-item-code">商品コード</th>
-            <th class="th-item-name">商品名</th>
-            <th class="th-item-stock">在庫数</th>
-            <th class="th-item-monthly-sales">想定月間販売数</th>
+            <%= render "th_item" %>
             <th class="th-edit">編集</th>
           </tr>
           <% @items.each do |item|%>
@@ -46,11 +38,7 @@
               </div>
             <% else %>
               <tr>
-                <td class="td-item-category"><%= item.category.name %></th>
-                <td class="td-item-code"><%= item.code %></th>
-                <td class="td-item-name"><%= item.name %></th>
-                <td class="td-item-stock"><%= item.stock %></th>
-                <td class="td-item-monthly-sales"><%= item.monthly_sales %></th>
+                <%= render partial: "td_item", locals: {item: item} %>
                 <td><%= link_to ">>", edit_item_path(item.id) %></td>
               </tr>
             <% end %>

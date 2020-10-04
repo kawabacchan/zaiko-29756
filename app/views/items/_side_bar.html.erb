@@ -11,10 +11,8 @@
       商品
     </div>
     <div class="content-btn">
-      <ul>
-        <li><%=link_to '一覧表示', items_path %></li>
-        <li><%=link_to '登録・編集・削除', new_item_path %></li>
-      </ul>
+      <div><%=link_to '一覧表示', items_path %></div>
+      <div><%=link_to '登録・編集・削除', new_item_path %></div>
     </div>
   </div>
 
@@ -23,10 +21,8 @@
       企業
     </div>
     <div class="content-btn">
-      <ul>
-        <li><%=link_to '一覧表示', companies_path %></li>
-        <li><%=link_to '登録・編集・削除', new_company_path %></li>
-      </ul>
+      <div><%=link_to '一覧表示', companies_path %></div>
+      <div><%=link_to '登録・編集・削除', new_company_path %></div>
     </div>
   </div>
 
@@ -35,10 +31,8 @@
       店舗
     </div>
     <div class="content-btn">
-      <ul>
-        <li><%=link_to '一覧表示', select_companies_path %></li>
-        <li><%=link_to '登録・編集・削除', increase_companies_path %></li>
-      </ul>
+      <div><%=link_to '一覧表示', select_companies_path %></div>
+      <div><%=link_to '登録・編集・削除', increase_companies_path %></div>
     </div>
   </div>
 
@@ -47,17 +41,15 @@
       注文
     </div>
     <div class="content-btn">
-      <ul>
-        <li>
-          <% if Order.all.blank? %>
-            <p>注文履歴なし</p>
-          <% else %>
-            <%=link_to '一覧表示', company_shop_orders_path(item_id: Order.first.item_id, shop_id: Order.first.shop_id, company_id: Order.first.shop.company_id) %>
-          <% end %>
-        </li>
-        <li><%=link_to '登録・編集・削除', recieve_companies_path %></li>
-      </ul>
-  </div>
+      <div>
+        <% if Order.all.blank? %>
+          <p>注文履歴なし</p>
+        <% else %>
+          <%=link_to '一覧表示', company_shop_orders_path(item_id: Order.first.item_id, shop_id: Order.first.shop_id, company_id: Order.first.shop.company_id) %>
+        <% end %>
+      </div>
+      <div><%=link_to '登録・編集・削除', recieve_companies_path %></div>
+    </div>
   </div>
 
   <div class="side-content">

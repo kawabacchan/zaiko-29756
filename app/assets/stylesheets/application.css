@@ -66,15 +66,12 @@
 .top-display {
   height: 220px;
   border-bottom: 2px solid darkgray;
+  padding: 10px 10px;
 }
 
 .top-display-form {
   position: absolute;
   top: 70px;
-}
-
-.top-display-title {
-  padding: 10px 10px 5px;
 }
 
 .top-display-instruction {
@@ -84,7 +81,9 @@
 
 .indicate-btn ul {
   display: flex;
-  margin-top: 30px;
+  margin: 30px 0;
+  padding : 0 0;
+  list-style: none;
 }
 
 .indicate-btn li {
@@ -106,6 +105,10 @@
 }
 
 /* 表 */
+
+table {
+  border-collapse: collapse;
+}
 
 .first-row {
   position: absolute;
@@ -165,6 +168,9 @@ th, td {
 /* エラー */
 .error-alert ul {
   display: flex;
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
 }
 
 .error-message {

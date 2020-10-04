@@ -10,12 +10,12 @@
 
 .import-file p {
   font-weight: bold;
+  margin : 0 0;
 }
 
 .item-form-and-error {
   margin-left: 10px;
   display: flex;
-  width: 1200px;
 }
 
 .sort-by-category, .sort-creation-list {

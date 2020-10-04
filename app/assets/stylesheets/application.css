@@ -55,6 +55,22 @@
   margin: 0 0 20px 10px;
 }
 
+.description {
+  margin-top: 50px;
+  font-size: 14px;
+  border: 2px solid gray;
+}
+
+.border-red {
+  border: 2px solid red;
+  padding: 5px;
+}
+
+.border-yellow {
+  border :2px solid yellow;
+  padding: 5px;
+}
+
 /* 全体画面の右側(メイン表示画面) */
 
 .main-display {
@@ -154,7 +170,7 @@ th, td {
 
 /* フォーム */
 .form {
-  border: 1px solid red;
+  border: 1px solid green;
   text-align: center;
   height: 25px;
 }

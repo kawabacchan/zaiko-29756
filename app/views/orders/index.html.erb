@@ -11,22 +11,26 @@
     </div>
 
     <div class="lower-display">
-      <table>
-        <tr class="first-row">
-          <%= render "th_order" %>
-          <th class="th-destory">削除</th>
-        </tr>
-        <tr>
-          <%= render "th_order" %>
-          <th class="th-destory">削除</th>
-        </tr>
-        <% @orders.each do |order| %>
-          <tr>
-            <%= render partial: "td_order", locals: {order: order} %>
-            <td><%= link_to '>>',company_shop_order_path(id: order.id), method: :delete %></td>
+      <% if @orders.present? %>
+        <table>
+          <tr class="first-row">
+            <%= render "th_order" %>
+            <th class="th-destory">削除</th>
           </tr>
-        <% end %>
-      </table>
+          <tr>
+            <%= render "th_order" %>
+            <th class="th-destory">削除</th>
+          </tr>
+          <% @orders.each do |order| %>
+            <tr>
+              <%= render partial: "td_order", locals: {order: order} %>
+              <td><%= link_to '>>',company_shop_order_path(id: order.id), method: :delete %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        注文履歴なし
+      <% end %>
     </div>
   </div>
 </div>

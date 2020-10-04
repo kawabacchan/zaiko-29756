@@ -13,36 +13,35 @@
     </div>
 
     <div class="lower-display">
-      <%if @companies %>
-        <table>
-          <tr class="first-row">
-            <th class="th-company-name">企業名</th>
-            <th class="th-edit">編集</th>
-          </tr>
-          <tr>
-            <th class="th-company-name">企業名</th>
-            <th class="th-edit">編集</th>
-          </tr>
-          <% @companies.each do |company|%>
-            <% if company.id == @company.id%>
-              <div class="item-form-and-error">
-                <%= form_with model:@company, local: true do |f| %>
-                  <%= render "items/error_messages", model: f.object %>
-                  <tr>
-                    <td><%= f.text_field :name, class:"company-name-form form", maxlength:10 %></td>
-                    <td><%= f.submit "確定", class:"submit-form form" %></td>
-                  </tr>
-                <% end %>
-              </div>
-            <% else %>
-              <tr>
-                <td class="td-company-name"><%= company.name %></td>
-                <td><%= link_to "編集", edit_company_path %></td>
-              </tr>
+      <div class="item-form-and-error">
+        <%= form_with model:@company, local: true do |f| %>
+          <%= render "items/error_messages", model: f.object %>
+          <table>
+            <tr class="first-row">
+              <th class="th-company-name">企業名</th>
+              <th class="th-edit">編集</th>
+            </tr>
+            <tr>
+              <th class="th-company-name">企業名</th>
+              <th class="th-edit">編集</th>
+            </tr>
+            <% @companies.each do |company|%>
+              <% if company.id == @company.id%>
+                <tr>
+                  <td><%= f.text_field :name, class:"company-name-form form", maxlength:10 %></td>
+                  <td><%= f.submit "確定", class:"submit-form form" %></td>
+                </tr>
+              <% else %>
+                <tr>
+                  <td class="td-company-name"><%= company.name %></td>
+                  <td><%= link_to "編集", edit_company_path %></td>
+                </tr>
+              <% end %>
             <% end %>
-          <% end %>
-        </table>
-      <% end %>
+          </table>
+        <% end %>
+      </div>
     </div>
+
   </div>
 </div>

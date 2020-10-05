@@ -9,7 +9,6 @@
 | name          | string  | null: false |
 | stock         | integer | null: false |
 | monthly_sales | integer | null: false |
-| creation_days | integer | null: false |
 
 ### Association
 

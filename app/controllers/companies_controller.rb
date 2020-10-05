@@ -41,11 +41,9 @@ class CompaniesController < ApplicationController
 
   def show
     @later_items = []
-    items = Item.all.order(code: "ASC")
+    items = Item.all.order(code: 'ASC')
     items.each do |item|
-      if item.stock <= (item.monthly_sales * 0.1)+ 3
-        @later_items << item
-      end
+      @later_items << item if item.stock <= (item.monthly_sales * 0.1) + 3
     end
     @shops = Shop.where(company_id: params[:id])
   end
@@ -71,7 +69,6 @@ class CompaniesController < ApplicationController
   def receive
   end
 
-
   private
 
   def company_params
@@ -79,11 +76,10 @@ class CompaniesController < ApplicationController
   end
 
   def all_company
-    @companies = Company.all.order(name: "ASC")
+    @companies = Company.all.order(name: 'ASC')
   end
 
   def set_company
     @company = Company.find(params[:id])
   end
-
 end

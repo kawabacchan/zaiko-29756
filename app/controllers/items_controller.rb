@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
-    @orders = Order.all.order(created_at: "DESC")
+    @orders = Order.all.order(created_at: 'DESC')
     @few_items = []
     @less_items = []
     @items.each do |item|
-      if item.stock <= (item.monthly_sales * 0.1)+ 3
+      if item.stock <= (item.monthly_sales * 0.1) + 3
         @few_items << item
       elsif item.stock <= item.monthly_sales * 0.5
         @less_items << item
@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-    
+
   def compare
     if params[:file].present?
       @error_stock_items = []
@@ -78,14 +78,13 @@ class ItemsController < ApplicationController
       end
       Item.all.each do |item|
         unless xlsx.column(2).include?(item.code)
-          item = Item.new(category_id: item.category_id, code: item.code, name: item.name, stock: "", monthly_sales: "")
+          item = Item.new(category_id: item.category_id, code: item.code, name: item.name, stock: '', monthly_sales: '')
           @error_stock_items << item
         end
       end
     else
       redirect_to root_path
     end
-    
   end
 
   private
@@ -95,11 +94,10 @@ class ItemsController < ApplicationController
   end
 
   def all_item
-    @items = Item.all.order(code: "ASC")
+    @items = Item.all.order(code: 'ASC')
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-
 end

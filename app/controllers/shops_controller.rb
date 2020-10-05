@@ -1,11 +1,10 @@
 class ShopsController < ApplicationController
-
   before_action :all_shop, only: [:new, :create, :destroy]
   before_action :set_shop, only: [:edit, :update]
   before_action :set_company, only: [:index, :new, :create, :edit, :update, :destroy, :import, :receive]
 
   def index
-    @shops = Shop.where(company_id: params[:company_id]).order(company_id: "ASC")
+    @shops = Shop.where(company_id: params[:company_id]).order(company_id: 'ASC')
   end
 
   def new
@@ -73,7 +72,7 @@ class ShopsController < ApplicationController
   end
 
   def all_shop
-    @shops = Shop.all.order(company_id: "ASC")
+    @shops = Shop.all.order(company_id: 'ASC')
   end
 
   def set_shop
@@ -83,5 +82,4 @@ class ShopsController < ApplicationController
   def set_company
     @company = Company.find(params[:company_id])
   end
-
 end

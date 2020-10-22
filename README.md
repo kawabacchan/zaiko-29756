@@ -72,9 +72,10 @@ Basic認証
 
 ### 納期表作成機能
 
-![training](https://gyazo.com/75394efce1acadccee135264e85a761f.gif)
+![training](https://gyazo.com/b0b586349e22a743f2a985f0cb076221.gif)
 
-
+# ER図
+![training](https://gyazo.com/ccc6f9103a4817c249811ff120727b39.png)
 
 # テーブル設計
 

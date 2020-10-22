@@ -23,9 +23,9 @@
  /* 全体画面の左右の並び */
  .wrapper {
   width: 1150px;
-  height: 900px;
+  height: calc(100vh - 16px);
   border: double;
-  margin: 20px auto;
+  margin: 0 auto;
   display: flex;
 }
 

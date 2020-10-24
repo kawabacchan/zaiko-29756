@@ -91,9 +91,9 @@ Basic認証
 
 ### Association
 
-has_many :delivery_dates
-has_many :orders
-has_many :shops, through: orders
+- has_many :delivery_dates
+- has_many :orders
+- has_many :shops, through: orders
 
 
 ## companysテーブル
@@ -104,7 +104,7 @@ has_many :shops, through: orders
 
 ### Association
 
-has_many :shops
+- has_many :shops
 
 
 ## shopsテーブル
@@ -119,9 +119,9 @@ has_many :shops
 
 ### Association
 
-belongs_to :company
-has_many :orders
-has_many :items, through: orders
+- belongs_to :company
+- has_many :orders
+- has_many :items, through: orders
 
 
 ## ordersテーブル
@@ -134,5 +134,5 @@ has_many :items, through: orders
 
 ### Association
 
-belongs_to :item
-belongs_to :shop
+- belongs_to :item
+- belongs_to :shop

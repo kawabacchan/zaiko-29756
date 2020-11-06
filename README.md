@@ -21,9 +21,11 @@ zaiko-29756
 A4サイズを想定しています。
 
 # 本番環境
-https://zaiko-29756.herokuapp.com/
 
-Basic認証
+### AWS
+http://ec2-34-203-18-194.compute-1.amazonaws.com/
+
+### Basic認証
 
 * ユーザー名: kawabata
 * パスワード: 1234
@@ -87,13 +89,13 @@ HTML, CSS, JavaScript
 MySQL
 
 ### Webサーバー(本番環境)
-Heroku
+AWS EC2
 
 ### アプリケーションサーバ(本番環境)
-Heroku
+AWS EC2
 
 ### データベース(本番環境)
-Heroku
+AWS EC2
 
 ### ソース管理
 GitHub, GitHubDesktop
@@ -107,8 +109,8 @@ VSCode
 
 # 開発予定
 
-### AWSを使ったデプロイ
-本アプリケーションはHerokuにデプロイしていますが、AWSを学習後、EC2にデプロイを行う予定です。
+### AWSを使ったデプロイ(2020/11/6完了済み)
+~~本アプリケーションはHerokuにデプロイしていますが、AWSを学習後、EC2にデプロイを行う予定です。~~
 
 ### 商品確保機能
 注文が確定していない状態で、商品の確保のみを取引先より依頼された際に、商品の確保ができる機能です。  

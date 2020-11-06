@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: zaiko_29756_production
-  username: zaiko_29756
-  password: <%= ENV['ZAIKO_29756_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
